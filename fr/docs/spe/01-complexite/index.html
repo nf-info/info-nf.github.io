@@ -1,0 +1,175 @@
+<!doctype html><html lang=fr-FR dir=ltr><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="
+  Introduction
+  #
+
+La complexité d&rsquo;un algorithme est une mesure des ressources nécessaires
+à son exécution, il y a deux ressources principales:
+
+
+Complexité spatiale: quantité de mémoire requise.
+
+
+Complexité temporelle: temps de calcul à prévoir.
+
+
+Le but de ces mesures est de comparer les algorithmes pour pouvoir
+identifier l&rsquo;algorithme le plus efficace.
+On ne mesure pas les valeurs exactes (le nombre d&rsquo;octets nécessaires ou
+le nombre de secondes) mais uniquement des ordres de grandeurs en
+fonction des paramètres d&rsquo;entrée."><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#343a40"><meta name=color-scheme content="light dark"><meta property="og:url" content="http://localhost:1313/fr/docs/spe/01-complexite/"><meta property="og:site_name" content="info-nf"><meta property="og:title" content="info-nf"><meta property="og:description" content="Introduction # La complexité d’un algorithme est une mesure des ressources nécessaires à son exécution, il y a deux ressources principales:
+Complexité spatiale: quantité de mémoire requise.
+Complexité temporelle: temps de calcul à prévoir.
+Le but de ces mesures est de comparer les algorithmes pour pouvoir identifier l’algorithme le plus efficace.
+On ne mesure pas les valeurs exactes (le nombre d’octets nécessaires ou le nombre de secondes) mais uniquement des ordres de grandeurs en fonction des paramètres d’entrée."><meta property="og:locale" content="fr_FR"><meta property="og:type" content="article"><meta property="article:section" content="docs"><title>01 Complexite | info-nf</title>
+<link rel=icon href=/favicon.png><link rel=manifest href=/manifest.json><link rel=canonical href=http://localhost:1313/fr/docs/spe/01-complexite/><link rel=stylesheet href=/book.min.6c8b9d2a1fc95075ed7da46ca81060b39add8fff6741ac51259f768929281e2c.css integrity="sha256-bIudKh/JUHXtfaRsqBBgs5rdj/9nQaxRJZ92iSkoHiw=" crossorigin=anonymous><script defer src=/fuse.min.js></script><script defer src=/fr.search.min.0a7c2e2526478f685299931e35d261b568453569cc546ccf511939d076eb6dd1.js integrity="sha256-CnwuJSZHj2hSmZMeNdJhtWhFNWnMVGzPURk50HbrbdE=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/fr/><span>info-nf</span></a></h2><div class="book-search hidden"><input type=text id=book-search-input placeholder=Rechercher aria-label=Rechercher maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><script>document.querySelector(".book-search").classList.remove("hidden")</script><ul class=book-languages><li><input type=checkbox id=languages class=toggle>
+<label for=languages class="flex justify-between"><a role=button class="flex align-center"><img src=/svg/translate.svg class=book-icon alt=Languages>
+Francais</a></label><ul><li><a href=/>English</a></li></ul></li></ul><ul><li class=book-section-flat><input type=checkbox id=section-ffdbecff6f0c7ccf900e4462b9a45a4a class=toggle>
+<label for=section-ffdbecff6f0c7ccf900e4462b9a45a4a class="flex justify-between"><a role=button>Sup</a></label><ul><li><a href=/fr/docs/sup/00-system_info/>00 System Info</a></li><li><a href=/fr/docs/sup/01-codage/>01 Codage</a></li><li><a href=/fr/docs/sup/02-intro_python/>02 Intro Python</a></li><li><a href=/fr/docs/sup/03-les_fonctions/>03 Les Fonctions</a></li><li><a href=/fr/docs/sup/04-les_listes/>04 Les Listes</a></li><li><a href=/fr/docs/sup/05-les_chaines/>05 Les Chaines</a></li><li><a href=/fr/docs/sup/06-les_tris/>06 Les Tris</a></li><li><a href=/fr/docs/sup/07-tuples_dictionnaires_ensembles/>07 Tuples Dictionnaires Ensembles</a></li></ul></li><li class=book-section-flat><input type=checkbox id=section-0dffdbec383fb400778d964a8f20cb48 class=toggle checked>
+<label for=section-0dffdbec383fb400778d964a8f20cb48 class="flex justify-between"><a role=button>Spe</a></label><ul><li><a href=/fr/docs/spe/01-complexite/ class=active>01 Complexite</a></li><li><a href=/fr/docs/spe/02-algorithme_de_tri/>02 Algorithme De Tri</a></li><li><a href=/fr/docs/spe/03-arbre_binaire/>03 Arbre Binaire</a></li><li><a href=/fr/docs/spe/04-algorithme_glouton/>04 Algorithme Glouton</a></li><li><a href=/fr/docs/spe/05-programation_dynamique/>05 Programation Dynamique</a></li><li><a href=/fr/docs/spe/06-les_graphes/>06 Les Graphes</a></li><li><a href=/fr/docs/spe/07-sql/>07 SQL</a></li></ul></li></ul><ul><li><a href=/fr/posts/>Blog</a></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/svg/menu.svg class=book-icon alt=Menu></label><h3>01 Complexite</h3><label for=toc-control><img src=/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><ul><li></li></ul></li></ul><ul><li><a href=#instructions-élémentaires>Instructions élémentaires</a></li><li><a href=#méthode-de-calcul>Méthode de calcul</a><ul><li></li></ul></li></ul><ul><li><ul><li></li></ul></li></ul></nav></aside></header><article class="markdown book-article"><h1 id=introduction>Introduction
+<a class=anchor href=#introduction>#</a></h1><p>La complexité d&rsquo;un algorithme est une mesure des ressources nécessaires
+à son exécution, il y a deux ressources principales:</p><ul><li><p>Complexité spatiale: quantité de mémoire requise.</p></li><li><p>Complexité temporelle: temps de calcul à prévoir.</p></li></ul><p>Le but de ces mesures est de comparer les algorithmes pour pouvoir
+identifier l&rsquo;algorithme le plus efficace.</p><p>On ne mesure pas les valeurs exactes (le nombre d&rsquo;octets nécessaires ou
+le nombre de secondes) mais uniquement des ordres de grandeurs en
+fonction des paramètres d&rsquo;entrée.</p><h4 id=exemple>Exemple:
+<a class=anchor href=#exemple>#</a></h4><p>On souhaite comparer deux algorithmes qui permettent de déterminer si un
+entier naturel <code>n</code> est premier ou pas:</p><p>:::: box
+::: {.columns-flow count=&ldquo;2&rdquo;}</p><ul><li>Pour cette première version on test si:</li></ul><p>$$\left( \forall i \in ⟦2,n⟦ \right)\mspace{13mu} i \mid n$$</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-py data-lang=py><span style=display:flex><span><span style=color:#75715e>#</span>
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>test_premier_version_1</span>(n):
+</span></span><span style=display:flex><span>        flag <span style=color:#f92672>=</span> <span style=color:#66d9ef>True</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> range(<span style=color:#ae81ff>2</span>,n):
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> (n <span style=color:#f92672>%</span> i <span style=color:#f92672>==</span> <span style=color:#ae81ff>0</span>):
+</span></span><span style=display:flex><span>                flag <span style=color:#f92672>=</span> <span style=color:#66d9ef>False</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> flag
+</span></span></code></pre></div><ul><li>Pour la deuxième version on test si:</li></ul><p>$$\left( \forall i \in ⟦2,\sqrt{n}⟧ \right)\mspace{13mu} i \mid n$$</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-py data-lang=py><span style=display:flex><span><span style=color:#f92672>from</span> math <span style=color:#f92672>import</span> sqrt, ceil
+</span></span><span style=display:flex><span>      <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>test_premier_version_2</span>(n):
+</span></span><span style=display:flex><span>        flag <span style=color:#f92672>=</span> <span style=color:#66d9ef>True</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> range(<span style=color:#ae81ff>2</span>, ceil(sqrt(n))):
+</span></span><span style=display:flex><span>          <span style=color:#66d9ef>if</span> (n <span style=color:#f92672>%</span> i <span style=color:#f92672>==</span> <span style=color:#ae81ff>0</span>):
+</span></span><span style=display:flex><span>            flag <span style=color:#f92672>=</span> <span style=color:#66d9ef>False</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> flag
+</span></span></code></pre></div><p>:::
+::::</p><p>** Quelle version est la plus rapide ? **</p><p>L&rsquo;intuition nous dis que la deuxième version est la plus rapide, mais
+pour mesurer ça, on s&rsquo;appuie sur la notion <strong>d&rsquo;instruction
+élémentaire</strong>.</p><h1 id=calcul-de-complexité>Calcul de Complexité
+<a class=anchor href=#calcul-de-complexit%c3%a9>#</a></h1><h2 id=instructions-élémentaires>Instructions élémentaires
+<a class=anchor href=#instructions-%c3%a9l%c3%a9mentaires>#</a></h2><p>Il est nécessaire de préciser les instructions élémentaires disponibles,
+c&rsquo;est-à-dire les opérations de coût constant:</p><ul><li><p>opérations arithmétiques et logiques: <code>a + b</code>, <code>a - b</code>, <code>a / b</code>,
+<code>a and b</code></p></li><li><p>comparaisons de données élémentaires: <code>a &lt; b</code>, <code>a == b</code></p></li><li><p>transferts de données <strong>simples</strong>: <code>a = 42</code></p></li><li><p>instructions de contrôle: <code>if</code>, <code>else</code>, <code>while</code>, <code>for</code>, <code>return</code>,
+<code>def</code></p></li></ul><h2 id=méthode-de-calcul>Méthode de calcul
+<a class=anchor href=#m%c3%a9thode-de-calcul>#</a></h2><p>On énuméré le nombre d&rsquo;instructions élémentaires qui seront exécutées
+dans l&rsquo;algorithme, en utilisant les règles suivantes:</p><h4 id=règles>Règles
+<a class=anchor href=#r%c3%a8gles>#</a></h4><p>Pour les boucles <code>for</code>:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-py data-lang=py><span style=display:flex><span><span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> range(n):      <span style=color:#75715e># 1</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># Bloc a            # cout: T_a(i)</span>
+</span></span></code></pre></div><p>La complexité totale de la boucle est de:
+$$C(n) = O(1) + O\left( \sum_{i = 0}^{n - 1}T_{a}(i) \right)$$ Pour les
+boucles <code>while</code>:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-py data-lang=py><span style=display:flex><span><span style=color:#66d9ef>while</span> (condition):      <span style=color:#75715e># 1</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># Bloc a            # T_a(m)</span>
+</span></span></code></pre></div><p>Il n&rsquo;y a pas de méthode sur, mais on essaye de trouver le nombre
+d&rsquo;itérations totales que fera la boucle, selon la condition. Ce nombre
+dépend des entrées, notant le $f(n)$</p><p>La complexité est donc:
+$$C(n) = O(1) + O\left( \sum_{i = 0}^{f(n)}T_{a}(i) \right)$$</p><p>Pour les conditions:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-py data-lang=py><span style=display:flex><span><span style=color:#66d9ef>if</span> (condition_1):       <span style=color:#75715e># 1</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># Bloc a            # T_a(n)</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>elif</span> (condition_2):     <span style=color:#75715e># 1</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># Bloc b            # T_b(n)</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>else</span>:                   <span style=color:#75715e># 1</span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># Bloc c            # T_c(n)</span>
+</span></span></code></pre></div><p>Puisqu&rsquo;on s&rsquo;intéresse a la complexité <strong>au pire des cas</strong>, on utilise le
+max des différentes complexités des branches:
+$C(n) = O(1) + O\left( \max\left\lbrack T_{a}(n),T_{b}(n),T_{c}(n) \right\rbrack \right)$</p><h4 id=exemple-1>Exemple
+<a class=anchor href=#exemple-1>#</a></h4><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-py data-lang=py><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>test_premier_version_1</span>(n):      <span style=color:#75715e># 1</span>
+</span></span><span style=display:flex><span>    flag <span style=color:#f92672>=</span> <span style=color:#66d9ef>True</span>                     <span style=color:#75715e># 1</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> range(<span style=color:#ae81ff>2</span>, n):           <span style=color:#75715e># 1</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> (n <span style=color:#f92672>%</span> i <span style=color:#f92672>==</span> <span style=color:#ae81ff>0</span>):            <span style=color:#75715e># 1</span>
+</span></span><span style=display:flex><span>            flag <span style=color:#f92672>=</span> <span style=color:#66d9ef>False</span>            <span style=color:#75715e># 1</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> flag                     <span style=color:#75715e># 1</span>
+</span></span></code></pre></div><p>Après avoir énumérer les instructions élémentaire ci-dessus, on calcul
+la complexité $C(n)$:
+$$C(n) = O(1) + O(1) + O(1) + \sum_{i = 2}^{n - 1}O(1)$$
+$$C(n) = O\left( 3 + (n - 2) \right)$$ On utilise la propriété suivante:
+$$f = o(g) \Rightarrow O(f + g) = O(g)$$ On obtient: $$C(n) = O(n)$$</p><h1 id=classes-de-complexité>Classes de complexité
+<a class=anchor href=#classes-de-complexit%c3%a9>#</a></h1><p>Le graphe suivant montre les comportements asymptotiques des différentes
+classes de complexité:</p><figure><p><img src=res/01-graph.png style=width:80%></p><figcaption><p>Classe de complexité</p></figcaption></figure><p>Pour estimer le temps d&rsquo;exécution $T$ d&rsquo;un algorithme pour une taille
+d&rsquo;entrée $n$, on se base sur sa complexité $C(n)$ qui représente le
+nombre d&rsquo;instructions exécutées, et on utilise la fréquence du
+processeur $f$ qui est le nombre d&rsquo;instructions exécutées par seconde.
+$$T = \frac{C(n)}{f}$$</p><p>Pour un processeur de fréquence 1GHz on obtient les valeurs suivantes:</p><figure><p><img src=res/01-complexite_temps.png style=width:80%></p><figcaption><p>Classe de complexité</p></figcaption></figure><h1 id=exercices>Exercices
+<a class=anchor href=#exercices>#</a></h1><p>Calculez les complexités des fonctions suivantes:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-py data-lang=py><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>f1</span>(n):
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> range (n):
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> j <span style=color:#f92672>in</span> range(n):
+</span></span><span style=display:flex><span>            print(<span style=color:#e6db74>&#34;Hello&#34;</span>)
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-py data-lang=py><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>f2</span>(n):
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> range(n):
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> j <span style=color:#f92672>in</span> range(i):
+</span></span><span style=display:flex><span>            print(<span style=color:#e6db74>&#34;Hello&#34;</span>)
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-py data-lang=py><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>f3</span>(n):
+</span></span><span style=display:flex><span>    k<span style=color:#f92672>=</span>n
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>while</span> (k <span style=color:#f92672>&gt;</span> <span style=color:#ae81ff>1</span>):
+</span></span><span style=display:flex><span>        k <span style=color:#f92672>=</span> k <span style=color:#f92672>//</span> <span style=color:#ae81ff>2</span>
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-py data-lang=py><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>f4</span>(n, m):
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>while</span> n <span style=color:#f92672>+</span> m <span style=color:#f92672>&gt;</span> <span style=color:#ae81ff>1</span>:
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> (n <span style=color:#f92672>+</span> m) <span style=color:#f92672>%</span> <span style=color:#ae81ff>2</span> <span style=color:#f92672>==</span> <span style=color:#ae81ff>0</span>:
+</span></span><span style=display:flex><span>            n <span style=color:#f92672>-=</span> <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>else</span>:
+</span></span><span style=display:flex><span>            m <span style=color:#f92672>-=</span> <span style=color:#ae81ff>1</span>
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-py data-lang=py><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>f5</span>(n):
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> range(n<span style=color:#f92672>*</span>n):
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> j <span style=color:#f92672>in</span> range(i):
+</span></span><span style=display:flex><span>            print (<span style=color:#e6db74>&#34;Hello&#34;</span>)
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-py data-lang=py><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>f6</span>(n, m):
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> range(n):
+</span></span><span style=display:flex><span>        t <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>while</span> t <span style=color:#f92672>&lt;</span> m:
+</span></span><span style=display:flex><span>            print (<span style=color:#e6db74>&#34;Hello&#34;</span>)
+</span></span><span style=display:flex><span>            t <span style=color:#f92672>=</span> t <span style=color:#f92672>*</span> <span style=color:#ae81ff>2</span>
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-py data-lang=py><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>f7</span>(n, L):
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> range(n):
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> i <span style=color:#f92672>%</span> <span style=color:#ae81ff>2</span> <span style=color:#f92672>==</span> <span style=color:#ae81ff>0</span>:
+</span></span><span style=display:flex><span>            sorted(L)
+</span></span></code></pre></div><p>title: [ **Attention : ** ], [ Les instructions suivantes ne sont pas
+élémentaire:</p><ul><li><p>recherche dans une liste; <code>x in L</code>, <code>L.index(x)</code>, <code>L.remove(x)</code></p></li><li><p>transferts de données composées; <code>T = L.copy()</code>, <code>chaine = f.read()</code></p></li></ul><p>En général, il faut se méfier de tout appel a des fonctions prédéfinis.
+]</p><h1 id=complexité-des-fonctions-récursives>Complexité des fonctions récursives
+<a class=anchor href=#complexit%c3%a9-des-fonctions-r%c3%a9cursives>#</a></h1><p>On applique les mêmes étapes:</p><h4 id=exemple-2>Exemple
+<a class=anchor href=#exemple-2>#</a></h4><p>On note $C(n)$ la complexité de la fonction suivante:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-py data-lang=py><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>factorielle</span>(n):                 <span style=color:#75715e># 1</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> n <span style=color:#f92672>&lt;=</span> <span style=color:#ae81ff>1</span>:                      <span style=color:#75715e># 1</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> <span style=color:#ae81ff>1</span>                    <span style=color:#75715e># 1</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> n <span style=color:#f92672>*</span> factorielle(n<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>)     <span style=color:#75715e># 1 + C(n-1)</span>
+</span></span></code></pre></div><p>Le coût de l&rsquo;appel récursif <code>factorielle(n-1)</code> est $C(n - 1)$.</p><p>On calcul alors la complexité $C(n)$:</p><p>$$C(n) = O(1 + 1 + 1) + C(n - 1)$$ Et on a
+$$C(1) = O(1 + 1 + 1) = O(1)$$</p><p>On peut alors montrer par récurrence que: $$C(n) = O(n)$$</p><h4 id=règles-1>Règles
+<a class=anchor href=#r%c3%a8gles-1>#</a></h4><p>Pour les fonctions récursives, le calcul de complexité donne souvent une
+formule de récurrence, il faut donc la résoudre pour trouver la formule
+du terme général.</p><p>title: [ Hors-programme: ], color: &ldquo;blue&rdquo;, radius: 2pt, width: auto [</p><p>On peut s&rsquo;appuyer sur le <strong>master théorème</strong> pour trouver rapidement la
+formule générale.</p><p>Pour $$\begin{cases}
+T(n) = aT\left( \frac{n}{b} \right) + O\left( n^{k} \right) \
+T(1) = O(1)
+\end{cases}$$ On compare $k$ avec $\log_{\left{ b \right}}(a)$:</p><p>$$
+T(n) = \begin{cases}
+O\left( n^{k} \right)\mspace{90mu} & \text{ si }\mspace{15mu}\log_{b}(a) &lt; k \
+O\left( n^{k}\log_{b}(n) \right) & \text{ si }\mspace{15mu}\log_{b}(a) = k \
+O\left( n^{\log_{b}(a)} \right) & \text{ si }\mspace{15mu}\log_{b}(a) > k
+\end{cases}$$ ]</p><h1 id=exercices-1>Exercices
+<a class=anchor href=#exercices-1>#</a></h1><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-py data-lang=py><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>f8</span>(n):
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (n <span style=color:#f92672>==</span> <span style=color:#ae81ff>0</span>):
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> f8(n<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>) <span style=color:#f92672>+</span> f8(n<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>)
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-py data-lang=py><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>f9</span>(n):
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (n <span style=color:#f92672>==</span> <span style=color:#ae81ff>0</span>):
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>    resultat <span style=color:#f92672>=</span> f9(n<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>)
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> resultat <span style=color:#f92672>+</span> resultat
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-py data-lang=py><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>puissance_v1</span>(a,b):
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (b <span style=color:#f92672>==</span> <span style=color:#ae81ff>0</span>):
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> a <span style=color:#f92672>*</span> puissance_v1(a, b<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>)
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-py data-lang=py><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>puissance_v2</span>(a,b):
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (b <span style=color:#f92672>==</span> <span style=color:#ae81ff>0</span>):
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (b <span style=color:#f92672>%</span> <span style=color:#ae81ff>2</span> <span style=color:#f92672>==</span> <span style=color:#ae81ff>0</span>):
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> puissance_v2(a, b<span style=color:#f92672>//</span><span style=color:#ae81ff>2</span>) <span style=color:#f92672>**</span> <span style=color:#ae81ff>2</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (b <span style=color:#f92672>%</span> <span style=color:#ae81ff>2</span> <span style=color:#f92672>==</span> <span style=color:#ae81ff>1</span>):
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> a <span style=color:#f92672>*</span> puissance_v2(a, b<span style=color:#f92672>//</span><span style=color:#ae81ff>2</span>) <span style=color:#f92672>**</span> <span style=color:#ae81ff>2</span>
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-py data-lang=py><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>fibonacci</span>(n):
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (n <span style=color:#f92672>&lt;=</span> <span style=color:#ae81ff>1</span>):
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> fibonacci(n<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>) <span style=color:#f92672>+</span> fibonacci(n<span style=color:#f92672>-</span><span style=color:#ae81ff>2</span>)
+</span></span></code></pre></div><p>$$</p></article><footer class=book-footer><div class="flex flex-wrap justify-between"></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><ul><li></li></ul></li></ul><ul><li><a href=#instructions-élémentaires>Instructions élémentaires</a></li><li><a href=#méthode-de-calcul>Méthode de calcul</a><ul><li></li></ul></li></ul><ul><li><ul><li></li></ul></li></ul></nav></div></aside></main></body></html>

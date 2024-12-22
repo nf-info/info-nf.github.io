@@ -1,0 +1,111 @@
+<!doctype html><html lang=fr-FR dir=ltr><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="
+  Introduction
+  #
+
+Une chaine de caractere est une variable qui contient du texte, un
+ensemble de caracteres qui se suivent dans un ordre précis. Elles sont
+définies entre guillemets (double quote) &#34;, ou entre apostrophes
+(simple quote) '
+
+  Syntaxe
+  #
+
+L&rsquo;identificateur (le nom) d&rsquo;une chaine de caracteres suit les memes
+regles que les identificateurs de variables. On definit une chaine vide
+comme suit:
+ma_chaine = &#34;&#34;
+autre_chaine = ''
+Sinon, une chaine de caracteres peut comporter des elements quelconques
+:"><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#343a40"><meta name=color-scheme content="light dark"><meta property="og:url" content="http://localhost:1313/fr/docs/sup/05-les_chaines/"><meta property="og:site_name" content="info-nf"><meta property="og:title" content="info-nf"><meta property="og:description" content="Introduction # Une chaine de caractere est une variable qui contient du texte, un ensemble de caracteres qui se suivent dans un ordre précis. Elles sont définies entre guillemets (double quote) &#34;, ou entre apostrophes (simple quote) '
+Syntaxe # L’identificateur (le nom) d’une chaine de caracteres suit les memes regles que les identificateurs de variables. On definit une chaine vide comme suit:
+ma_chaine = &#34;&#34; autre_chaine = '' Sinon, une chaine de caracteres peut comporter des elements quelconques :"><meta property="og:locale" content="fr_FR"><meta property="og:type" content="article"><meta property="article:section" content="docs"><title>05 Les Chaines | info-nf</title>
+<link rel=icon href=/favicon.png><link rel=manifest href=/manifest.json><link rel=canonical href=http://localhost:1313/fr/docs/sup/05-les_chaines/><link rel=stylesheet href=/book.min.6c8b9d2a1fc95075ed7da46ca81060b39add8fff6741ac51259f768929281e2c.css integrity="sha256-bIudKh/JUHXtfaRsqBBgs5rdj/9nQaxRJZ92iSkoHiw=" crossorigin=anonymous><script defer src=/fuse.min.js></script><script defer src=/fr.search.min.0a7c2e2526478f685299931e35d261b568453569cc546ccf511939d076eb6dd1.js integrity="sha256-CnwuJSZHj2hSmZMeNdJhtWhFNWnMVGzPURk50HbrbdE=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/fr/><span>info-nf</span></a></h2><div class="book-search hidden"><input type=text id=book-search-input placeholder=Rechercher aria-label=Rechercher maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><script>document.querySelector(".book-search").classList.remove("hidden")</script><ul class=book-languages><li><input type=checkbox id=languages class=toggle>
+<label for=languages class="flex justify-between"><a role=button class="flex align-center"><img src=/svg/translate.svg class=book-icon alt=Languages>
+Francais</a></label><ul><li><a href=/>English</a></li></ul></li></ul><ul><li class=book-section-flat><input type=checkbox id=section-ffdbecff6f0c7ccf900e4462b9a45a4a class=toggle checked>
+<label for=section-ffdbecff6f0c7ccf900e4462b9a45a4a class="flex justify-between"><a role=button>Sup</a></label><ul><li><a href=/fr/docs/sup/00-system_info/>00 System Info</a></li><li><a href=/fr/docs/sup/01-codage/>01 Codage</a></li><li><a href=/fr/docs/sup/02-intro_python/>02 Intro Python</a></li><li><a href=/fr/docs/sup/03-les_fonctions/>03 Les Fonctions</a></li><li><a href=/fr/docs/sup/04-les_listes/>04 Les Listes</a></li><li><a href=/fr/docs/sup/05-les_chaines/ class=active>05 Les Chaines</a></li><li><a href=/fr/docs/sup/06-les_tris/>06 Les Tris</a></li><li><a href=/fr/docs/sup/07-tuples_dictionnaires_ensembles/>07 Tuples Dictionnaires Ensembles</a></li></ul></li><li class=book-section-flat><input type=checkbox id=section-0dffdbec383fb400778d964a8f20cb48 class=toggle>
+<label for=section-0dffdbec383fb400778d964a8f20cb48 class="flex justify-between"><a role=button>Spe</a></label><ul><li><a href=/fr/docs/spe/01-complexite/>01 Complexite</a></li><li><a href=/fr/docs/spe/02-algorithme_de_tri/>02 Algorithme De Tri</a></li><li><a href=/fr/docs/spe/03-arbre_binaire/>03 Arbre Binaire</a></li><li><a href=/fr/docs/spe/04-algorithme_glouton/>04 Algorithme Glouton</a></li><li><a href=/fr/docs/spe/05-programation_dynamique/>05 Programation Dynamique</a></li><li><a href=/fr/docs/spe/06-les_graphes/>06 Les Graphes</a></li><li><a href=/fr/docs/spe/07-sql/>07 SQL</a></li></ul></li></ul><ul><li><a href=/fr/posts/>Blog</a></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/svg/menu.svg class=book-icon alt=Menu></label><h3>05 Les Chaines</h3><label for=toc-control><img src=/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><ul><li></li></ul></li></ul><ul><li><ul><li></li></ul></li></ul></nav></aside></header><article class="markdown book-article"><h1 id=introduction>Introduction
+<a class=anchor href=#introduction>#</a></h1><p>Une chaine de caractere est une variable qui contient du texte, un
+ensemble de caracteres qui se suivent dans un ordre précis. Elles sont
+définies entre guillemets (double quote) <code>"</code>, ou entre apostrophes
+(simple quote) <code>'</code></p><h4 id=syntaxe>Syntaxe
+<a class=anchor href=#syntaxe>#</a></h4><p>L&rsquo;identificateur (le nom) d&rsquo;une chaine de caracteres suit les memes
+regles que les identificateurs de variables. On definit une chaine vide
+comme suit:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-py data-lang=py><span style=display:flex><span>ma_chaine <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;&#34;</span>
+</span></span><span style=display:flex><span>autre_chaine <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;&#39;</span>
+</span></span></code></pre></div><p>Sinon, une chaine de caracteres peut comporter des elements quelconques
+:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-py data-lang=py><span style=display:flex><span>nom <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;Ahmed&#34;</span>
+</span></span><span style=display:flex><span>ville <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;Rabat&#39;</span>
+</span></span><span style=display:flex><span>age <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;20&#34;</span>
+</span></span><span style=display:flex><span>message <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;Bonjour tout le monde&#34;</span>
+</span></span></code></pre></div><p>On peut faire les operations de concatenation <code>+</code> et de repetition <code>*</code>
+sur une chaine de caracteres:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-py data-lang=py><span style=display:flex><span>ch1 <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;hello&#34;</span>
+</span></span><span style=display:flex><span>ch2 <span style=color:#f92672>=</span> ch <span style=color:#f92672>+</span> <span style=color:#e6db74>&#34; Ahmed&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Donnera la chaine &#34;hello Ahmed&#34;</span>
+</span></span><span style=display:flex><span>ch3 <span style=color:#f92672>=</span> ch1 <span style=color:#f92672>*</span> <span style=color:#ae81ff>3</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Donnera la chaine &#34;hellohellohello&#34;</span>
+</span></span></code></pre></div><p>Les chaines de caracteres sont indexes de la meme maniere que les listes</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-py data-lang=py><span style=display:flex><span><span style=color:#75715e>#     01234     &lt;--- l&#39;indice de chaque caractere</span>
+</span></span><span style=display:flex><span>ch <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;hello&#34;</span>
+</span></span></code></pre></div><p>Pour acceder aux elements de la chaine de caracteres:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-py data-lang=py><span style=display:flex><span>ch <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;Bonjour tout le monde&#34;</span>
+</span></span><span style=display:flex><span>print(ch[<span style=color:#ae81ff>3</span>])     <span style=color:#75715e># Affichera &#34;j&#34;</span>
+</span></span><span style=display:flex><span>print(ch[<span style=color:#ae81ff>0</span>])     <span style=color:#75715e># Affichera &#34;B&#34;</span>
+</span></span><span style=display:flex><span>print(ch[<span style=color:#ae81ff>7</span>])     <span style=color:#75715e># Affichera &#34; &#34;</span>
+</span></span></code></pre></div><p><strong>PS</strong>: les espaces sont aussi des caracteres et ont leurs propres
+indices.</p><h1 id=les-chaines-sont-non-modifiable>Les chaines sont non modifiable
+<a class=anchor href=#les-chaines-sont-non-modifiable>#</a></h1><p>title: [ Attention ],</p><p>[</p><p>Au contraire des listes ou on peut modifier les elements, les chaines de
+caractere sont <strong>non-modifiable</strong> ]</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-py data-lang=py><span style=display:flex><span>ch <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;Bonjour&#34;</span>
+</span></span><span style=display:flex><span>ch[<span style=color:#ae81ff>1</span>] <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;a&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># ERREUR Les chaines sont non modifiable</span>
+</span></span></code></pre></div><h1 id=ajout-dun-caractere>Ajout d&rsquo;un caractere
+<a class=anchor href=#ajout-dun-caractere>#</a></h1><p>Pour ajouter un caractere a une chaine, on ne peut pas modifier la
+chaine, donc on cree une nouvelle chaine a partir de la concatenation de
+la chaine original et la chaine a ajouter</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-py data-lang=py><span style=display:flex><span>ch <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;Bonjour&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>ch <span style=color:#f92672>=</span> ch <span style=color:#f92672>+</span> <span style=color:#e6db74>&#34; tout le monde&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Donnera &#34;Bonjour tout le monde&#34;</span>
+</span></span></code></pre></div><h1 id=taille-dune-chaine>Taille d&rsquo;une chaine
+<a class=anchor href=#taille-dune-chaine>#</a></h1><p>Pour obtenir la taille d&rsquo;une chaine, on utilise la fonction len()</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-py data-lang=py><span style=display:flex><span>ch <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;Bonjour&#34;</span>
+</span></span><span style=display:flex><span>print(len(ch))       <span style=color:#75715e># Affichera 7</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>ch <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34; Bonjour &#34;</span>
+</span></span><span style=display:flex><span>print(len(ch))       <span style=color:#75715e># Affichera 9</span>
+</span></span></code></pre></div><p>Les elements d&rsquo;une chaine <code>ch</code> sont donc indexes de <code>0</code> a <code>len(ch)-1</code>.</p><p>Pour acceder au dernier element d&rsquo;une chaine : <code>ch[len(ch)-1]</code></p><h1 id=indexage-negatif>Indexage negatif
+<a class=anchor href=#indexage-negatif>#</a></h1><p>Pour acceder aux caracteres de la chaine, on peut utiliser l&rsquo;indexage
+negatif. Dans ce cas les caracteres de la chaine sont indexe du dernier
+caractere <code>-1</code>, au premier <code>-len(ch)</code></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-py data-lang=py><span style=display:flex><span>ch <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;Bonjour&#34;</span>
+</span></span><span style=display:flex><span>print(ch[<span style=color:#f92672>-</span><span style=color:#ae81ff>2</span>])          <span style=color:#75715e># Affichera &#34;u&#34;</span>
+</span></span></code></pre></div><p>L&rsquo;indexage négatif revient a retrancher <code>len(ch)</code> de l&rsquo;indice positif,
+par exemple le caractère d&rsquo;indice 0 peut aussi être indexe par
+<code>-len(ch)</code>.</p><h1 id=méthodes-et-fonctions-sur-les-chaines-de-caractere>Méthodes et fonctions sur les chaines de caractere
+<a class=anchor href=#m%c3%a9thodes-et-fonctions-sur-les-chaines-de-caractere>#</a></h1><ul><li><p><code>len(ch)</code> permet d&rsquo;obtenir le nombre d&rsquo;elements d&rsquo;une chaine.</p></li><li><p><code>ch.count(s)</code> permet de compter le nombre d&rsquo;occurence de la
+sous-chaine <code>s</code> dans <code>ch</code></p></li><li><p><code>ch.find(s)</code> renvoie l&rsquo;indice de la sous-chaine <code>s</code> dans la chaine
+<code>ch</code>.</p></li><li><p><code>ch.replace(a, b)</code> renvoie une nouvelle chaine ou la sous-chaine <code>a</code>
+est remplace par <code>b</code></p></li><li><p><code>ch.strip()</code> supprime les espaces inutiles au debut et a la fin de
+la chaine</p></li><li><p><code>ch.lower()</code> convertit la chaine en minuscule</p></li><li><p><code>ch.upper()</code> convertit la chaine en majuscule</p></li><li><p><code>ch.capitalize()</code> convertit la premiere lettre de la chaine en
+majuscule</p></li><li><p><code>ch.isalpha()</code> determine si la chaine est constitue que de lettres
+(renvoie <code>True</code> ou <code>False</code>)</p></li><li><p><code>ch.isdigit()</code> determine si la chaine est constitue que de chiffres
+(renvoie <code>True</code> ou <code>False</code>)</p></li><li><p><code>ch.isupper()</code> determine si la chaine est constitue que de
+majuscules (renvoie <code>True</code> ou <code>False</code>)</p></li><li><p><code>ch.islower()</code> determine si la chaine est constitue que de
+minuscules (renvoie <code>True</code> ou <code>False</code>)</p></li></ul><h1 id=parcours-dune-chaine>Parcours d&rsquo;une chaine
+<a class=anchor href=#parcours-dune-chaine>#</a></h1><p>On peut parcourir une chaine de caractere comme suit :</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-py data-lang=py><span style=display:flex><span><span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> range(len(ch)):
+</span></span><span style=display:flex><span>    print(i, ch[i])
+</span></span></code></pre></div><p>Ou encore :</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-py data-lang=py><span style=display:flex><span><span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> ch:
+</span></span><span style=display:flex><span>    print(i)
+</span></span></code></pre></div><h1 id=les-tranches-de-chaines>Les tranches de chaines
+<a class=anchor href=#les-tranches-de-chaines>#</a></h1><p>On peut prendre des tranches de chaines comme on fait pour les listes.</p><p>Une tranche d&rsquo;une chaine est definie par un indice de debut <code>d</code>, indice
+de fin <code>f</code>, et le pas <code>p</code> utilise, avec la syntaxe : <code>ch[d:f:p]</code> ou
+<code>ch[d:f]</code> pour un pas de 1</p><h4 id=exemple>Exemple
+<a class=anchor href=#exemple>#</a></h4><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-py data-lang=py><span style=display:flex><span>ch <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;Bonjour&#34;</span>
+</span></span><span style=display:flex><span>print(ch[<span style=color:#ae81ff>1</span>:<span style=color:#ae81ff>3</span>])     <span style=color:#75715e># Affichera &#34;on&#34;</span>
+</span></span></code></pre></div><p>Si on omet l&rsquo;indice de debut, la tranche commencera du debut de la
+chaine. De meme, si on omet l&rsquo;indice de fin, la tranche finira a la fin
+de la chaine.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-py data-lang=py><span style=display:flex><span>ch <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;Bonjour&#34;</span>
+</span></span><span style=display:flex><span>print(ch[<span style=color:#ae81ff>3</span>:])      <span style=color:#75715e># &#34;jour&#34;</span>
+</span></span><span style=display:flex><span>print(ch[:<span style=color:#ae81ff>2</span>])      <span style=color:#75715e># &#34;Bo&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>print(ch[<span style=color:#ae81ff>3</span>:<span style=color:#ae81ff>0</span>:<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>])  <span style=color:#75715e># &#34;jno&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>print(ch[::<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>])    <span style=color:#75715e># permet d&#39;inverser la chaine &#34;ruojnoB&#34;</span>
+</span></span></code></pre></div><p>Si les indices debut ou fin sont dans le mauvais ordre, on obtient une
+chaine vide :</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-py data-lang=py><span style=display:flex><span>print(ch[<span style=color:#ae81ff>3</span>:<span style=color:#ae81ff>2</span>])     <span style=color:#75715e># Affichera &#34;&#34;</span>
+</span></span></code></pre></div></article><footer class=book-footer><div class="flex flex-wrap justify-between"></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><ul><li></li></ul></li></ul><ul><li><ul><li></li></ul></li></ul></nav></div></aside></main></body></html>

@@ -1,0 +1,106 @@
+<!doctype html><html lang=fr-FR dir=ltr><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="
+  Introduction
+  #
+
+
+  Représentation des données dans la mémoire
+  #
+
+Quelle que soit la nature de l&rsquo;information (image, son, vidéo, texte,
+&mldr;) traitée par un ordinateur, elle est toujours sous la forme d&rsquo;un
+ensemble de nombres écrits en binaire (0 et 1).\
+
+  Systeme de numeration binaire
+  #
+
+On appelle base un entier B strictement positif. Tout entier n
+peut alors s&rsquo;écrire de façon unique comme ci-dessous:
+$$n = \sum_{i = 0}^{k}n_{i}B^{i} = n_{k}B^{k} + n_{k - 1}B^{k - 1} + \ldots + n_{1}B + n_{0}$$
+$n$ s&rsquo;écrit donc:
+$$n = \left( n_{k}n_{k - 1}\ldots n_{0} \right){B}\quad\text{ avec }\quad n{i} \in ⟦0,B⟦$$
+On compte habituellement en base 10 mais un ordinateur compte en base 2
+car les circuits utilisés peuvent avoir deux états auxquels
+correspondent deux chiffres 0 et 1. On parle de numérotation binaire.
+Les éléments 0 et 1 sont appelés BIT (Binary Digit), Un groupe de
+huit bits est nommé Octet (attention! Octet se dit Byte en
+anglais.)"><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#343a40"><meta name=color-scheme content="light dark"><meta property="og:url" content="http://localhost:1313/fr/docs/sup/01-codage/"><meta property="og:site_name" content="info-nf"><meta property="og:title" content="info-nf"><meta property="og:description" content="Introduction # Représentation des données dans la mémoire # Quelle que soit la nature de l’information (image, son, vidéo, texte, …) traitée par un ordinateur, elle est toujours sous la forme d’un ensemble de nombres écrits en binaire (0 et 1).\
+Systeme de numeration binaire # On appelle base un entier B strictement positif. Tout entier n peut alors s’écrire de façon unique comme ci-dessous: $$n = \sum_{i = 0}^{k}n_{i}B^{i} = n_{k}B^{k} + n_{k - 1}B^{k - 1} + \ldots + n_{1}B + n_{0}$$ $n$ s’écrit donc: $$n = \left( n_{k}n_{k - 1}\ldots n_{0} \right){B}\quad\text{ avec }\quad n{i} \in ⟦0,B⟦$$ On compte habituellement en base 10 mais un ordinateur compte en base 2 car les circuits utilisés peuvent avoir deux états auxquels correspondent deux chiffres 0 et 1. On parle de numérotation binaire. Les éléments 0 et 1 sont appelés BIT (Binary Digit), Un groupe de huit bits est nommé Octet (attention! Octet se dit Byte en anglais.)"><meta property="og:locale" content="fr_FR"><meta property="og:type" content="article"><meta property="article:section" content="docs"><title>01 Codage | info-nf</title>
+<link rel=icon href=/favicon.png><link rel=manifest href=/manifest.json><link rel=canonical href=http://localhost:1313/fr/docs/sup/01-codage/><link rel=stylesheet href=/book.min.6c8b9d2a1fc95075ed7da46ca81060b39add8fff6741ac51259f768929281e2c.css integrity="sha256-bIudKh/JUHXtfaRsqBBgs5rdj/9nQaxRJZ92iSkoHiw=" crossorigin=anonymous><script defer src=/fuse.min.js></script><script defer src=/fr.search.min.0a7c2e2526478f685299931e35d261b568453569cc546ccf511939d076eb6dd1.js integrity="sha256-CnwuJSZHj2hSmZMeNdJhtWhFNWnMVGzPURk50HbrbdE=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/fr/><span>info-nf</span></a></h2><div class="book-search hidden"><input type=text id=book-search-input placeholder=Rechercher aria-label=Rechercher maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><script>document.querySelector(".book-search").classList.remove("hidden")</script><ul class=book-languages><li><input type=checkbox id=languages class=toggle>
+<label for=languages class="flex justify-between"><a role=button class="flex align-center"><img src=/svg/translate.svg class=book-icon alt=Languages>
+Francais</a></label><ul><li><a href=/>English</a></li></ul></li></ul><ul><li class=book-section-flat><input type=checkbox id=section-ffdbecff6f0c7ccf900e4462b9a45a4a class=toggle checked>
+<label for=section-ffdbecff6f0c7ccf900e4462b9a45a4a class="flex justify-between"><a role=button>Sup</a></label><ul><li><a href=/fr/docs/sup/00-system_info/>00 System Info</a></li><li><a href=/fr/docs/sup/01-codage/ class=active>01 Codage</a></li><li><a href=/fr/docs/sup/02-intro_python/>02 Intro Python</a></li><li><a href=/fr/docs/sup/03-les_fonctions/>03 Les Fonctions</a></li><li><a href=/fr/docs/sup/04-les_listes/>04 Les Listes</a></li><li><a href=/fr/docs/sup/05-les_chaines/>05 Les Chaines</a></li><li><a href=/fr/docs/sup/06-les_tris/>06 Les Tris</a></li><li><a href=/fr/docs/sup/07-tuples_dictionnaires_ensembles/>07 Tuples Dictionnaires Ensembles</a></li></ul></li><li class=book-section-flat><input type=checkbox id=section-0dffdbec383fb400778d964a8f20cb48 class=toggle>
+<label for=section-0dffdbec383fb400778d964a8f20cb48 class="flex justify-between"><a role=button>Spe</a></label><ul><li><a href=/fr/docs/spe/01-complexite/>01 Complexite</a></li><li><a href=/fr/docs/spe/02-algorithme_de_tri/>02 Algorithme De Tri</a></li><li><a href=/fr/docs/spe/03-arbre_binaire/>03 Arbre Binaire</a></li><li><a href=/fr/docs/spe/04-algorithme_glouton/>04 Algorithme Glouton</a></li><li><a href=/fr/docs/spe/05-programation_dynamique/>05 Programation Dynamique</a></li><li><a href=/fr/docs/spe/06-les_graphes/>06 Les Graphes</a></li><li><a href=/fr/docs/spe/07-sql/>07 SQL</a></li></ul></li></ul><ul><li><a href=/fr/posts/>Blog</a></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/svg/menu.svg class=book-icon alt=Menu></label><h3>01 Codage</h3><label for=toc-control><img src=/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#représentation-des-données-dans-la-mémoire>Représentation des données dans la mémoire</a></li><li><a href=#systeme-de-numeration-binaire>Systeme de numeration binaire</a></li></ul><ul><li><ul><li></li></ul></li></ul><ul><li><a href=#representation-par-signe-et-valeur-absolue-sur-8-bits>Representation par signe et valeur absolue sur 8 bits</a><ul><li></li></ul></li><li><a href=#representation-par-complement-a-2-sur-8-bits>Representation par Complement a 2 sur 8 bits</a><ul><li></li></ul></li></ul><ul><li><a href=#format-virgule-fixe>Format virgule fixe</a><ul><li></li></ul></li><li><a href=#format-virgule-flottante>Format virgule flottante</a><ul><li></li></ul></li></ul></nav></aside></header><article class="markdown book-article"><h1 id=introduction>Introduction
+<a class=anchor href=#introduction>#</a></h1><h2 id=représentation-des-données-dans-la-mémoire>Représentation des données dans la mémoire
+<a class=anchor href=#repr%c3%a9sentation-des-donn%c3%a9es-dans-la-m%c3%a9moire>#</a></h2><p>Quelle que soit la nature de l&rsquo;information (image, son, vidéo, texte,
+&mldr;) traitée par un ordinateur, elle est toujours sous la forme d&rsquo;un
+ensemble de nombres écrits en binaire (0 et 1).\</p><h2 id=systeme-de-numeration-binaire>Systeme de numeration binaire
+<a class=anchor href=#systeme-de-numeration-binaire>#</a></h2><p>On appelle base un entier <strong>B</strong> strictement positif. Tout entier <strong>n</strong>
+peut alors s&rsquo;écrire de façon unique comme ci-dessous:
+$$n = \sum_{i = 0}^{k}n_{i}B^{i} = n_{k}B^{k} + n_{k - 1}B^{k - 1} + \ldots + n_{1}B + n_{0}$$
+$n$ s&rsquo;écrit donc:
+$$n = \left( n_{k}n_{k - 1}\ldots n_{0} \right)<em>{B}\quad\text{ avec }\quad n</em>{i} \in ⟦0,B⟦$$
+On compte habituellement en base 10 mais un ordinateur compte en base 2
+car les circuits utilisés peuvent avoir deux états auxquels
+correspondent deux chiffres 0 et 1. On parle de numérotation binaire.
+Les éléments 0 et 1 sont appelés <strong>BIT</strong> (Binary Digit), Un groupe de
+huit bits est nommé <strong>Octet</strong> (<strong>attention!</strong> Octet se dit <strong>Byte</strong> en
+anglais.)</p><p>Les systèmes informatiques travaillent sur des longueurs fixes de bits
+appelées <strong>MOT</strong>. Un MOT est la plus grande série de bits qu&rsquo;un
+ordinateur puisse traiter en une seule opération. Par exemple le
+microprocesseur <code>intel i5</code> appartient a la famille <code>x86_64</code> qui utilise
+des mots de 64 bits.</p><h1 id=représentation-des-entiers-naturels-en-binaire>Représentation des entiers naturels en binaire
+<a class=anchor href=#repr%c3%a9sentation-des-entiers-naturels-en-binaire>#</a></h1><p>Pour obtenir l&rsquo;expression binaire d&rsquo;un nombre exprimé en décimal, on
+divise le nombre par 2 puis on divise successivement les quotients
+obtenus par 2 jusqu&rsquo;à ce que le quotient final obtenu soit égal à 0. Les
+restes obtenus forment la representation voulu.</p><h4 id=exemple>Exemple:
+<a class=anchor href=#exemple>#</a></h4><p>Pour $n = 77$, on effectue les divisions suivantes:</p><figure><p><img src=res/01-divisions.png style=width:40%></p><figcaption><p>Divisions successives du par 2</p></figcaption></figure><p>La representation binaire de 77 est donc $n = (1001101)_{2}$ Avec une
+taille de mot de 8 bits, on peut representer les entiers $⟦0,255⟧$</p><h1 id=representation-des-entiers-relatifs>Representation des entiers relatifs
+<a class=anchor href=#representation-des-entiers-relatifs>#</a></h1><h2 id=representation-par-signe-et-valeur-absolue-sur-8-bits>Representation par signe et valeur absolue sur 8 bits
+<a class=anchor href=#representation-par-signe-et-valeur-absolue-sur-8-bits>#</a></h2><p>On represente les nombres positifs comme vu precedement pour les nombres
+naturels sur 7 bits, et on rajoute 0 comme bit de <strong>poids le plus
+fort</strong>.<br>Pour les nombres negatifs, le bit de poids le plus fort est un 1</p><h4 id=exemple-1>Exemple:
+<a class=anchor href=#exemple-1>#</a></h4><ul><li><p>$77 = (01001101)_{2}$</p></li><li><p>$- 77 = (11001101)_{2}$</p></li></ul><p><strong>Remarques:</strong>\</p><ul><li><p>Avec une taille de mot de 8 bits, on peut representer les entiers
+$⟦ - 127,127⟧$</p></li><li><p>Le 0 est represente deux fois: $+ 0 = (00000000)<em>{2}$ et
+$- 0 = (10000000)</em>{2}$</p></li></ul><h2 id=representation-par-complement-a-2-sur-8-bits>Representation par Complement a 2 sur 8 bits
+<a class=anchor href=#representation-par-complement-a-2-sur-8-bits>#</a></h2><p>On represente les nombres positifs comme vu precedement pour les nombres
+naturels sur 7 bits. On aura donc toujours un 0 comme bit de poids
+fort.<br>Pour les nombres negatifs, on ecrit leur valeur absolue en binaire
+naturel, puis on applique la fonction appelee complement a 2, qui
+consiste a faire le complement a 1 puis d&rsquo;ajouter 1.</p><h4 id=exemple-2>Exemple:
+<a class=anchor href=#exemple-2>#</a></h4><p>Pour representer -77 on commence par la representation de 77:<br>$$77 = (01001101)<em>{2}$$ On applique le complement a 1 (le NON binaire),
+c&rsquo;est a dire on inverse les 0 en 1 et les 1 en 0. On obtient:
+$$(10110010)</em>{2}$$ Puis on rajoute 1 et on obtient la representation de
+-77 par complement a 2 sur 8 bits : $$- 77 = (10110011)_{2}$$
+<strong>Remarques:</strong>\</p><ul><li><p>Avec une taille de mot de 8 bits, on peut representer les entiers
+$⟦ - 128,127⟧$</p></li><li><p>$C_{2}\left( C_{2}(n) \right) = n$</p></li><li><p>$C_{2}(n) + n = 0$</p></li></ul><h1 id=representation-des-nombres-a-virgule>Representation des nombres a virgule
+<a class=anchor href=#representation-des-nombres-a-virgule>#</a></h1><h2 id=format-virgule-fixe>Format virgule fixe
+<a class=anchor href=#format-virgule-fixe>#</a></h2><p>On complete la definition precedente par les puissance de 2 negatives:
+$$n = \sum_{i = - k}^{k}n_{i}B^{i} = n_{k}B^{k} + n_{k - 1}B^{k - 1} + \ldots + n_{1}B + n_{0} + n_{- 1}B^{- 1} + \ldots + n_{- k&rsquo;}B^{- k&rsquo;}$$
+$$n = \left( n_{k}n_{k - 1}\ldots n_{0},n_{- 1}\ldots n_{- k&rsquo;} \right)<em>{B}\quad\text{ avec }\quad n</em>{i} \in ⟦0,B⟦$$
+On represente la partie entiere comme pour les entiers naturels. Pour la
+partie fractionnaire, on effectue des multiplications successive par
+deux, en prenant les parties entieres a chaque fois.</p><h4 id=exemple-3>Exemple:
+<a class=anchor href=#exemple-3>#</a></h4><p>Pour representer $13,375$, on represente 13 par $(1101)<em>{2}$, puis on
+represente la partie fractionnaire comme suit: $$0,375 \times 2 = 0,75$$
+$$0,75 \times 2 = 1,5$$ $$0,5 \times 2 = 1,0$$ On va lire les parties
+entieres des resultats de haut en bas $(0,011)$<br>Donc $$13,375 = (1101,011)</em>{2}$$</p><h2 id=format-virgule-flottante>Format virgule flottante
+<a class=anchor href=#format-virgule-flottante>#</a></h2><p>La norme IEEE 754 definit la maniere de representer les nombres reels a
+partir de leur notation scientifique :
+$$n = \pm m \times B^{e}\text{ avec }1 \leq m &lt; B$$ En binaire
+$1 \leq m &lt; 2$. On note $m&rsquo;$ la partie fractionnaire de $m$ donc:
+$$m = (1,m&rsquo;)<em>{2}$$ Ce qui donne : $$n = \pm (1,m&rsquo;)</em>{2} \times 2^{e}$$ La
+norme propose deux format:</p><ul><li><p>Simple precision qui s&rsquo;ecrit sur 32 bits.</p></li><li><p>Double precision, sur 64 bits.</p></li></ul><p>En simple precision le nombre n est represente par trois composantes:</p><ul><li><p>1 bit de signe (0 si positif, 1 si negatif)</p></li><li><p>8 bits pour l&rsquo;exposant modifie: $e&rsquo; = e + 127$</p></li><li><p>23 bits pour la mantisse (la partie fractionnaire, $m&rsquo;$)</p></li></ul><hr><p>[S]{.box} [e]{.box} [e]{.box} [e]{.box} [e]{.box} [e]{.box} [e]{.box} [e]{.box} [e]{.box} [m]{.box} [m]{.box} [m]{.box} [m]{.box} [m]{.box} [m]{.box} [m]{.box} [m]{.box} [m]{.box} [m]{.box} [m]{.box} [m]{.box} [m]{.box} [m]{.box} [m]{.box} [m]{.box} [m]{.box} [m]{.box} [m]{.box} [m]{.box} [m]{.box} [m]{.box} [m]{.box}</p><hr><p><strong>Remarques:</strong>\</p><ul><li><p>L&rsquo;exposant 00000000 et l&rsquo;exposant 11111111 sont interdit.</p></li><li><p>On rajoute 127 a l&rsquo;exposant pour pouvoir representer les exposants
+de $⟦ - 127,128⟧$</p></li></ul><h4 id=exemple-4>Exemple:
+<a class=anchor href=#exemple-4>#</a></h4><p>Pour coder le nombre $n = 113,25$ :</p><ul><li>n est positif, donc le bit de signe S = 0</li></ul><p>$$113 = (01110001)<em>{2}\quad\text{ et }\quad 0,25 = (0,01)</em>{2}$$ Donc
+$$n = (01110001,01)_{2}$$ $$n = 1,11000101 \times 2^{6}$$
+$$m&rsquo; = 11000101\quad\text{ et }\quad e&rsquo; = 6 + 127 = 133 = (10000101)$$
+d&rsquo;ou la representation de n : $$0:10000101:11000101:000000000000000$$</p><h1 id=codage-des-caractères>Codage des caractères
+<a class=anchor href=#codage-des-caract%c3%a8res>#</a></h1><p>L&rsquo;ASCII est une norme décrivant une table d&rsquo;encodage sur 7 bits de 128
+caracteres pour les systèmes informatiques. Elle est apparue dans les
+années 1960 et est notamment utilisée pour le codage des 95 caractères
+imprimables d&rsquo;une machine à écrire</p><p>L&rsquo;ASCII définit 128 caractères numérotés de 0 à 127 et codés en binaire
+de 0000000 à 1111111. Sept bits suffisent donc. Toutefois, les
+ordinateurs travaillant presque tous sur un multiple de huit bits (un
+octet) depuis les années 1970, chaque caractère d&rsquo;un texte en ASCII est
+souvent stocké dans un octet dont le 8e bit est 0.</p><figure><p><img src=res/01-ASCII.png style=width:90%></p><figcaption><p>Tableau ASCII</p></figcaption></figure></article><footer class=book-footer><div class="flex flex-wrap justify-between"></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#représentation-des-données-dans-la-mémoire>Représentation des données dans la mémoire</a></li><li><a href=#systeme-de-numeration-binaire>Systeme de numeration binaire</a></li></ul><ul><li><ul><li></li></ul></li></ul><ul><li><a href=#representation-par-signe-et-valeur-absolue-sur-8-bits>Representation par signe et valeur absolue sur 8 bits</a><ul><li></li></ul></li><li><a href=#representation-par-complement-a-2-sur-8-bits>Representation par Complement a 2 sur 8 bits</a><ul><li></li></ul></li></ul><ul><li><a href=#format-virgule-fixe>Format virgule fixe</a><ul><li></li></ul></li><li><a href=#format-virgule-flottante>Format virgule flottante</a><ul><li></li></ul></li></ul></nav></div></aside></main></body></html>

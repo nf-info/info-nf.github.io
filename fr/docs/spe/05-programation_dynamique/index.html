@@ -1,0 +1,169 @@
+<!doctype html><html lang=fr-FR dir=ltr><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="
+  Programation Dynamique
+  #
+
+On considere le programme python suivant, qui permet de calculer le
+nieme terme de la suite fibonacci :
+def fibo(n):
+    if (n == 0 or n == 1):
+        return 1
+    return fibo(n-1) + fibo(n-2)
+Pour n = 4 on remarque l&rsquo;arbre des appels suivant :
+
+
+Arbre d’appels recursifs.
+
+Cet algorithme recursif est de complexite $O\left( \varphi^{n} \right)$.
+Ceci est du au fait que cet algorithme resoud les memes sous-problemes
+plusieurs fois (fibo(2) par exemple, qui est appele 2 fois)."><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#343a40"><meta name=color-scheme content="light dark"><meta property="og:url" content="http://localhost:1313/fr/docs/spe/05-programation_dynamique/"><meta property="og:site_name" content="info-nf"><meta property="og:title" content="info-nf"><meta property="og:description" content="Programation Dynamique # On considere le programme python suivant, qui permet de calculer le nieme terme de la suite fibonacci :
+def fibo(n): if (n == 0 or n == 1): return 1 return fibo(n-1) + fibo(n-2) Pour n = 4 on remarque l’arbre des appels suivant :
+Arbre d’appels recursifs.
+Cet algorithme recursif est de complexite $O\left( \varphi^{n} \right)$. Ceci est du au fait que cet algorithme resoud les memes sous-problemes plusieurs fois (fibo(2) par exemple, qui est appele 2 fois)."><meta property="og:locale" content="fr_FR"><meta property="og:type" content="article"><meta property="article:section" content="docs"><title>05 Programation Dynamique | info-nf</title>
+<link rel=icon href=/favicon.png><link rel=manifest href=/manifest.json><link rel=canonical href=http://localhost:1313/fr/docs/spe/05-programation_dynamique/><link rel=stylesheet href=/book.min.6c8b9d2a1fc95075ed7da46ca81060b39add8fff6741ac51259f768929281e2c.css integrity="sha256-bIudKh/JUHXtfaRsqBBgs5rdj/9nQaxRJZ92iSkoHiw=" crossorigin=anonymous><script defer src=/fuse.min.js></script><script defer src=/fr.search.min.0a7c2e2526478f685299931e35d261b568453569cc546ccf511939d076eb6dd1.js integrity="sha256-CnwuJSZHj2hSmZMeNdJhtWhFNWnMVGzPURk50HbrbdE=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/fr/><span>info-nf</span></a></h2><div class="book-search hidden"><input type=text id=book-search-input placeholder=Rechercher aria-label=Rechercher maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><script>document.querySelector(".book-search").classList.remove("hidden")</script><ul class=book-languages><li><input type=checkbox id=languages class=toggle>
+<label for=languages class="flex justify-between"><a role=button class="flex align-center"><img src=/svg/translate.svg class=book-icon alt=Languages>
+Francais</a></label><ul><li><a href=/>English</a></li></ul></li></ul><ul><li class=book-section-flat><input type=checkbox id=section-ffdbecff6f0c7ccf900e4462b9a45a4a class=toggle>
+<label for=section-ffdbecff6f0c7ccf900e4462b9a45a4a class="flex justify-between"><a role=button>Sup</a></label><ul><li><a href=/fr/docs/sup/00-system_info/>00 System Info</a></li><li><a href=/fr/docs/sup/01-codage/>01 Codage</a></li><li><a href=/fr/docs/sup/02-intro_python/>02 Intro Python</a></li><li><a href=/fr/docs/sup/03-les_fonctions/>03 Les Fonctions</a></li><li><a href=/fr/docs/sup/04-les_listes/>04 Les Listes</a></li><li><a href=/fr/docs/sup/05-les_chaines/>05 Les Chaines</a></li><li><a href=/fr/docs/sup/06-les_tris/>06 Les Tris</a></li><li><a href=/fr/docs/sup/07-tuples_dictionnaires_ensembles/>07 Tuples Dictionnaires Ensembles</a></li></ul></li><li class=book-section-flat><input type=checkbox id=section-0dffdbec383fb400778d964a8f20cb48 class=toggle checked>
+<label for=section-0dffdbec383fb400778d964a8f20cb48 class="flex justify-between"><a role=button>Spe</a></label><ul><li><a href=/fr/docs/spe/01-complexite/>01 Complexite</a></li><li><a href=/fr/docs/spe/02-algorithme_de_tri/>02 Algorithme De Tri</a></li><li><a href=/fr/docs/spe/03-arbre_binaire/>03 Arbre Binaire</a></li><li><a href=/fr/docs/spe/04-algorithme_glouton/>04 Algorithme Glouton</a></li><li><a href=/fr/docs/spe/05-programation_dynamique/ class=active>05 Programation Dynamique</a></li><li><a href=/fr/docs/spe/06-les_graphes/>06 Les Graphes</a></li><li><a href=/fr/docs/spe/07-sql/>07 SQL</a></li></ul></li></ul><ul><li><a href=/fr/posts/>Blog</a></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/svg/menu.svg class=book-icon alt=Menu></label><h3>05 Programation Dynamique</h3><label for=toc-control><img src=/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#probleme-1--longest-common-subsequence>Probleme 1 : Longest Common Subsequence</a></li><li><a href=#probleme-2--distance-levenshtein>Probleme 2 : Distance Levenshtein</a></li><li><a href=#probleme-3--rod-cutting>Probleme 3 : Rod cutting</a></li><li><a href=#probleme-4--sac-a-dos-knapsack>Probleme 4 : Sac a dos (Knapsack)</a></li><li><a href=#probleme-5--longest-increasing-subsequence-lis>Probleme 5 : Longest Increasing Subsequence (LIS)</a></li><li><a href=#probleme-6--subset-sum>Probleme 6 : Subset sum</a></li><li><a href=#probleme-7--lattice-path>Probleme 7 : Lattice path</a></li><li><a href=#probleme-8--commercant-voyageur-traveling-sales-person>Probleme 8 : Commercant voyageur (Traveling Sales-Person)</a></li></ul></nav></aside></header><article class="markdown book-article"><h1 id=programation-dynamique>Programation Dynamique
+<a class=anchor href=#programation-dynamique>#</a></h1><p>On considere le programme python suivant, qui permet de calculer le
+nieme terme de la suite fibonacci :</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>fibo</span>(n):
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (n <span style=color:#f92672>==</span> <span style=color:#ae81ff>0</span> <span style=color:#f92672>or</span> n <span style=color:#f92672>==</span> <span style=color:#ae81ff>1</span>):
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> fibo(n<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>) <span style=color:#f92672>+</span> fibo(n<span style=color:#f92672>-</span><span style=color:#ae81ff>2</span>)
+</span></span></code></pre></div><p>Pour <code>n = 4</code> on remarque l&rsquo;arbre des appels suivant :</p><figure><p><img src=res/05-fibo_graph.png style=width:50%></p><figcaption><p>Arbre d’appels recursifs.</p></figcaption></figure><p>Cet algorithme recursif est de complexite $O\left( \varphi^{n} \right)$.
+Ceci est du au fait que cet algorithme resoud les memes sous-problemes
+plusieurs fois (<code>fibo(2)</code> par exemple, qui est appele 2 fois).</p><p>On peut donc ameliorer la solution en gardant les resultats deja
+calcules en memo. C&rsquo;est la technique de <strong>Memoisation</strong> ou programation
+dynamique <strong>top-down</strong>.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>fibo_cache <span style=color:#f92672>=</span> {}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>fibo_memo</span>(n):
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> n <span style=color:#f92672>in</span> fibo_cache :
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> fibo_cache[n]
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> n <span style=color:#f92672>==</span> <span style=color:#ae81ff>0</span> <span style=color:#f92672>or</span> n <span style=color:#f92672>==</span> <span style=color:#ae81ff>1</span> :
+</span></span><span style=display:flex><span>        fibo_cache[n] <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>    fibo_cache[n] <span style=color:#f92672>=</span> fibo_memo(n<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>) <span style=color:#f92672>+</span> fibo_memo(n<span style=color:#f92672>-</span><span style=color:#ae81ff>2</span>)
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> fibo_cache[n]
+</span></span></code></pre></div><p>Une deuxieme technique est de calculer les resultats par ordre croissant
+des sous-problemes, c&rsquo;est l&rsquo;approche <strong>bottom-up</strong> utilise dans
+l&rsquo;algorithme iterative.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>fibo_iter</span>(n):
+</span></span><span style=display:flex><span>    a, b <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span>,<span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> range(n):
+</span></span><span style=display:flex><span>        a, b <span style=color:#f92672>=</span> b, a<span style=color:#f92672>+</span>b
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> a
+</span></span></code></pre></div><p>** Caracterisation :**<br>On utilise la programmation dynamique pour resoudre les problemes qui
+exhibent les 2 proprietes suivantes :</p><ul><li><p>Chevauchement des sous-problemes</p></li><li><p>Sous-structure optimale</p></li></ul><h2 id=probleme-1--longest-common-subsequence>Probleme 1 : Longest Common Subsequence
+<a class=anchor href=#probleme-1--longest-common-subsequence>#</a></h2><p>Etant donne deux listes <code>X</code> et <code>Y</code>, determiner la longueur de la
+sous-sequence la plus longue.</p><p>Exemple :</p><ul><li><p><code>X = [1, 5, 3, 7, 2, 8, 6, 4]</code></p></li><li><p><code>Y = [1, 3, 1, 2, 8, 5, 4]</code></p></li></ul><p>La plus longue sous-sequence est : <code>[1, 3, 2, 8, 4]</code>, qui est de
+longueur <code>5</code>.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-py data-lang=py><span style=display:flex><span>memo <span style=color:#f92672>=</span> [ [<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span> <span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> range(<span style=color:#ae81ff>1000</span>) ] <span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> range(<span style=color:#ae81ff>1000</span>) ]
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>lcs</span>(X, Y):
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> memo[len(X)][len(Y)] <span style=color:#f92672>!=</span> <span style=color:#f92672>-</span><span style=color:#ae81ff>1</span> :
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> memo[len(X)][len(Y)]
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> X <span style=color:#f92672>==</span> [] <span style=color:#f92672>or</span> Y <span style=color:#f92672>==</span> []:
+</span></span><span style=display:flex><span>        memo[len(X)][len(Y)] <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> X[<span style=color:#ae81ff>0</span>] <span style=color:#f92672>==</span> Y[<span style=color:#ae81ff>0</span>]:
+</span></span><span style=display:flex><span>        s <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span> <span style=color:#f92672>+</span> lcs (X[<span style=color:#ae81ff>1</span>:], Y[<span style=color:#ae81ff>1</span>:])
+</span></span><span style=display:flex><span>        memo[len(X)][len(Y)] <span style=color:#f92672>=</span> s
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> s
+</span></span><span style=display:flex><span>    s <span style=color:#f92672>=</span> max ( lcs{X[<span style=color:#ae81ff>1</span>:], Y), lcs(X, Y[<span style=color:#ae81ff>1</span>:]) )
+</span></span><span style=display:flex><span>    memo[len(X)][len(Y)] <span style=color:#f92672>=</span> s
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> s
+</span></span></code></pre></div><h2 id=probleme-2--distance-levenshtein>Probleme 2 : Distance Levenshtein
+<a class=anchor href=#probleme-2--distance-levenshtein>#</a></h2><p>Etant donne deux chaines de caracteres <code>s1</code> et <code>s2</code>, on veut calculer le
+nombre minimal d&rsquo;operations necessaires pour transformer <code>s1</code> en <code>s2</code>,
+sachant que les operations possibles sont :</p><ul><li><p>Ajout d&rsquo;un caractere</p></li><li><p>Suppression d&rsquo;un caractere</p></li><li><p>Modification d&rsquo;un caractere</p></li></ul><p>Exemple :</p><ul><li><p><code>s1 = "m o r o c c o"</code></p></li><li><p><code>s2 = "m o n a c o"</code></p></li></ul><p>Dans ce cas, la distance de Levenshtein est 3; on va modifier &lsquo;r" et
+&lsquo;o&rsquo;, et supprimer &lsquo;c&rsquo;.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>memo <span style=color:#f92672>=</span> {}
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>lev</span>(X, Y):
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (len(X), len(Y)) <span style=color:#f92672>in</span> memo :
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> memo[(len(X), len(Y))]
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> X <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;&#39;</span> <span style=color:#f92672>or</span> Y <span style=color:#f92672>==</span> <span style=color:#e6db74>&#39;&#39;</span>:
+</span></span><span style=display:flex><span>        memo[(len(X), len(Y))] <span style=color:#f92672>=</span> len(X) <span style=color:#f92672>+</span> len(Y)
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> len(X) <span style=color:#f92672>+</span> len(Y)
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> X[<span style=color:#ae81ff>0</span>] <span style=color:#f92672>==</span> Y[<span style=color:#ae81ff>0</span>]:
+</span></span><span style=display:flex><span>        s <span style=color:#f92672>=</span> lev (X[<span style=color:#ae81ff>1</span>:], Y[<span style=color:#ae81ff>1</span>:])
+</span></span><span style=display:flex><span>        memo[(len(X), len(Y))] <span style=color:#f92672>=</span> s
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> s
+</span></span><span style=display:flex><span>    s <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span> <span style=color:#f92672>+</span> min ( lev(X[<span style=color:#ae81ff>1</span>:], Y), lev(X, Y[<span style=color:#ae81ff>1</span>:]), lev(X[<span style=color:#ae81ff>1</span>:], Y[<span style=color:#ae81ff>1</span>:]) )
+</span></span><span style=display:flex><span>    memo[(len(X), len(Y))] <span style=color:#f92672>=</span> s
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> s
+</span></span></code></pre></div><h2 id=probleme-3--rod-cutting>Probleme 3 : Rod cutting
+<a class=anchor href=#probleme-3--rod-cutting>#</a></h2><p>Une entreprise souhaite vendre une barre metalique de taille <code>l</code>. etant
+donne une liste <code>prix</code> qui associe a chaque longeur <code>i</code> le prix du
+marche <code>prix[i]</code> d&rsquo;une barre metalique de taille <code>i</code>, Quel est le
+decoupage optimale pour maximiser le gain.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>memo <span style=color:#f92672>=</span> {}
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>rod_cutting</span>(prix, l):
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> l <span style=color:#f92672>in</span> memo:
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> memo[l]
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> l <span style=color:#f92672>==</span> <span style=color:#ae81ff>0</span>:
+</span></span><span style=display:flex><span>        memo[<span style=color:#ae81ff>0</span>] <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span>    L <span style=color:#f92672>=</span> []
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> range(<span style=color:#ae81ff>1</span>, min(l<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>, len(prix)):
+</span></span><span style=display:flex><span>        L<span style=color:#f92672>.</span>append(prix[i] <span style=color:#f92672>+</span> rod_cutting(l<span style=color:#f92672>-</span>i))
+</span></span><span style=display:flex><span>    s <span style=color:#f92672>=</span> max(L)
+</span></span><span style=display:flex><span>    memo[l] <span style=color:#f92672>=</span> s
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> s
+</span></span></code></pre></div><h2 id=probleme-4--sac-a-dos-knapsack>Probleme 4 : Sac a dos (Knapsack)
+<a class=anchor href=#probleme-4--sac-a-dos-knapsack>#</a></h2><ul><li><p>Fractional Knapsack</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>knapsack</span>(V, volumes, prix):
+</span></span><span style=display:flex><span>   data <span style=color:#f92672>=</span> [ [volumes[i], prix[i]] <span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> range(len(prix)) ]
+</span></span><span style=display:flex><span>   data<span style=color:#f92672>.</span>sort(key<span style=color:#f92672>=</span><span style=color:#66d9ef>lambda</span> x : x[<span style=color:#ae81ff>1</span>], reverse <span style=color:#f92672>=</span> <span style=color:#66d9ef>True</span>)
+</span></span><span style=display:flex><span>   s <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span>   i <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span>   <span style=color:#66d9ef>while</span> V <span style=color:#f92672>&gt;</span> <span style=color:#ae81ff>0</span>:
+</span></span><span style=display:flex><span>       <span style=color:#66d9ef>if</span> data[i][<span style=color:#ae81ff>0</span>] <span style=color:#f92672>&gt;=</span> V :
+</span></span><span style=display:flex><span>           s <span style=color:#f92672>+=</span> data[i][<span style=color:#ae81ff>1</span>] <span style=color:#f92672>*</span> V
+</span></span><span style=display:flex><span>           <span style=color:#66d9ef>return</span> s
+</span></span><span style=display:flex><span>       s <span style=color:#f92672>+=</span> data[i][<span style=color:#ae81ff>1</span>] <span style=color:#f92672>*</span> data[i][<span style=color:#ae81ff>0</span>]
+</span></span><span style=display:flex><span>       V <span style=color:#f92672>-=</span> data[i][<span style=color:#ae81ff>0</span>]
+</span></span><span style=display:flex><span>       i<span style=color:#f92672>+=</span><span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>   <span style=color:#66d9ef>return</span> s
+</span></span></code></pre></div></li><li><p>Unbound Knapsack</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>
+</span></span><span style=display:flex><span>memo <span style=color:#f92672>=</span> {}
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>knapsack</span>(data, V):
+</span></span><span style=display:flex><span>   <span style=color:#66d9ef>if</span> V <span style=color:#f92672>in</span> memo: <span style=color:#66d9ef>return</span> memo[V]
+</span></span><span style=display:flex><span>   L <span style=color:#f92672>=</span> []
+</span></span><span style=display:flex><span>   <span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> range(len(data)):
+</span></span><span style=display:flex><span>       <span style=color:#66d9ef>if</span> data[i][<span style=color:#ae81ff>0</span>] <span style=color:#f92672>&lt;=</span> V :
+</span></span><span style=display:flex><span>           L<span style=color:#f92672>.</span>append( data[i][<span style=color:#ae81ff>1</span>] <span style=color:#f92672>+</span> knapsack(data, V<span style=color:#f92672>-</span>data[i][<span style=color:#ae81ff>0</span>]) )
+</span></span><span style=display:flex><span>   <span style=color:#66d9ef>if</span> L <span style=color:#f92672>==</span> []:
+</span></span><span style=display:flex><span>       memo[<span style=color:#ae81ff>0</span>] <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span>       <span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span>   memo[V] <span style=color:#f92672>=</span> max(L)
+</span></span><span style=display:flex><span>   <span style=color:#66d9ef>return</span> memo[V]
+</span></span></code></pre></div></li><li><p>0-1 Knapsack</p></li></ul><h2 id=probleme-5--longest-increasing-subsequence-lis>Probleme 5 : Longest Increasing Subsequence (LIS)
+<a class=anchor href=#probleme-5--longest-increasing-subsequence-lis>#</a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>memo <span style=color:#f92672>=</span> {}
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>LIS</span>(L, v<span style=color:#f92672>=</span><span style=color:#ae81ff>0</span>):
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (len(L), v) <span style=color:#f92672>in</span> memo :
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> memo[(len(L), v)]
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> L <span style=color:#f92672>==</span> [] :
+</span></span><span style=display:flex><span>            memo [(<span style=color:#ae81ff>0</span>, v)] <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>return</span> <span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> L[<span style=color:#ae81ff>0</span>] <span style=color:#f92672>&gt;</span> v:
+</span></span><span style=display:flex><span>            a <span style=color:#f92672>=</span> LIS(L[<span style=color:#ae81ff>1</span>:], L[<span style=color:#ae81ff>0</span>])
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>else</span> :
+</span></span><span style=display:flex><span>            a <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span>        s <span style=color:#f92672>=</span> max(a, LIS(L[<span style=color:#ae81ff>1</span>:], v))
+</span></span><span style=display:flex><span>        memo [(len(L), v)] <span style=color:#f92672>=</span> s
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> s
+</span></span></code></pre></div><h2 id=probleme-6--subset-sum>Probleme 6 : Subset sum
+<a class=anchor href=#probleme-6--subset-sum>#</a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>memo <span style=color:#f92672>=</span> {}
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>subset_sum</span>(L, S):
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> (len(L), S) <span style=color:#f92672>in</span> memo :
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> memo[(len(L), S)]
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> S <span style=color:#f92672>==</span> <span style=color:#ae81ff>0</span> :
+</span></span><span style=display:flex><span>        memo[(len(L), S)] <span style=color:#f92672>=</span> <span style=color:#66d9ef>True</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>True</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> L <span style=color:#f92672>==</span> [] <span style=color:#f92672>and</span> S <span style=color:#f92672>!=</span> <span style=color:#ae81ff>0</span>:
+</span></span><span style=display:flex><span>        memo[(len(L), S)] <span style=color:#f92672>=</span> <span style=color:#66d9ef>False</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>False</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> L[<span style=color:#ae81ff>0</span>] <span style=color:#f92672>&lt;=</span> S :
+</span></span><span style=display:flex><span>        r <span style=color:#f92672>=</span> subset_sum(L[<span style=color:#ae81ff>1</span>:], S<span style=color:#f92672>-</span>L[<span style=color:#ae81ff>0</span>]) <span style=color:#f92672>or</span> subset_sum(L[<span style=color:#ae81ff>1</span>:], S)
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>else</span> :
+</span></span><span style=display:flex><span>        r <span style=color:#f92672>=</span> subset_sum(L[<span style=color:#ae81ff>1</span>:], S)
+</span></span><span style=display:flex><span>    memo[(len(L), S)] <span style=color:#f92672>=</span> r
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> r
+</span></span></code></pre></div><p>]</p><h2 id=probleme-7--lattice-path>Probleme 7 : Lattice path
+<a class=anchor href=#probleme-7--lattice-path>#</a></h2><h2 id=probleme-8--commercant-voyageur-traveling-sales-person>Probleme 8 : Commercant voyageur (Traveling Sales-Person)
+<a class=anchor href=#probleme-8--commercant-voyageur-traveling-sales-person>#</a></h2></article><footer class=book-footer><div class="flex flex-wrap justify-between"></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#probleme-1--longest-common-subsequence>Probleme 1 : Longest Common Subsequence</a></li><li><a href=#probleme-2--distance-levenshtein>Probleme 2 : Distance Levenshtein</a></li><li><a href=#probleme-3--rod-cutting>Probleme 3 : Rod cutting</a></li><li><a href=#probleme-4--sac-a-dos-knapsack>Probleme 4 : Sac a dos (Knapsack)</a></li><li><a href=#probleme-5--longest-increasing-subsequence-lis>Probleme 5 : Longest Increasing Subsequence (LIS)</a></li><li><a href=#probleme-6--subset-sum>Probleme 6 : Subset sum</a></li><li><a href=#probleme-7--lattice-path>Probleme 7 : Lattice path</a></li><li><a href=#probleme-8--commercant-voyageur-traveling-sales-person>Probleme 8 : Commercant voyageur (Traveling Sales-Person)</a></li></ul></nav></div></aside></main></body></html>

@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>info-nf</title><link>http://localhost:1313/fr/docs/sup/</link><description>Recent content on info-nf</description><generator>Hugo</generator><language>fr-FR</language><atom:link href="http://localhost:1313/fr/docs/sup/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>http://localhost:1313/fr/docs/sup/00-system_info/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1313/fr/docs/sup/00-system_info/</guid><description>&lt;h1 id="système-informatique">
+ Système Informatique
+ &lt;a class="anchor" href="#syst%c3%a8me-informatique">#&lt;/a>
+&lt;/h1>
+&lt;p>Un système informatique est un ensemble organisé de ressources
+matérielles et logicielles destiné au traitement automatique de
+l&amp;rsquo;information.&lt;/p>
+&lt;h4 id="exemples">
+ Exemples:
+ &lt;a class="anchor" href="#exemples">#&lt;/a>
+&lt;/h4>
+&lt;ul>
+&lt;li>
+&lt;p>Ordinateur;&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Tablette;&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Smart-Phone;&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Calculatrice programmable.&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h1 id="les-constituants-de-base">
+ Les constituants de base
+ &lt;a class="anchor" href="#les-constituants-de-base">#&lt;/a>
+&lt;/h1>
+&lt;p>La structure de base d&amp;rsquo;un ordinateur peut se résumer sur les composantes
+suivantes:&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>Le processeur;&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>La mémoire centrale;&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Les unités de stockage;&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Les périphériques.&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>Une mémoire est tout organe capable de conserver des informations de de
+les restituer à la demande. Elle est caractérisée par sa capacité qui
+est le nombre des caractères qu&amp;rsquo;on peut stocker dans la mémoire. L&amp;rsquo;unité
+de mesure de cette capacité est &lt;strong>Octet&lt;/strong>. La mémoire centrale est
+découpée en octets, chacun de ces octets est identifié par un numéro
+séquentiel appelé adresse mémoire. La mémoire centrale est composée de
+deux types de mémoires : Mémoire vive (&lt;strong>RAM&lt;/strong> : Random Access Memory)
+Mémoire morte (&lt;strong>ROM&lt;/strong> : Read Only Memory).&lt;/p></description></item><item><title/><link>http://localhost:1313/fr/docs/sup/01-codage/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1313/fr/docs/sup/01-codage/</guid><description>&lt;h1 id="introduction">
+ Introduction
+ &lt;a class="anchor" href="#introduction">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="représentation-des-données-dans-la-mémoire">
+ Représentation des données dans la mémoire
+ &lt;a class="anchor" href="#repr%c3%a9sentation-des-donn%c3%a9es-dans-la-m%c3%a9moire">#&lt;/a>
+&lt;/h2>
+&lt;p>Quelle que soit la nature de l&amp;rsquo;information (image, son, vidéo, texte,
+&amp;hellip;) traitée par un ordinateur, elle est toujours sous la forme d&amp;rsquo;un
+ensemble de nombres écrits en binaire (0 et 1).\&lt;/p>
+&lt;h2 id="systeme-de-numeration-binaire">
+ Systeme de numeration binaire
+ &lt;a class="anchor" href="#systeme-de-numeration-binaire">#&lt;/a>
+&lt;/h2>
+&lt;p>On appelle base un entier &lt;strong>B&lt;/strong> strictement positif. Tout entier &lt;strong>n&lt;/strong>
+peut alors s&amp;rsquo;écrire de façon unique comme ci-dessous:
+$$n = \sum_{i = 0}^{k}n_{i}B^{i} = n_{k}B^{k} + n_{k - 1}B^{k - 1} + \ldots + n_{1}B + n_{0}$$
+$n$ s&amp;rsquo;écrit donc:
+$$n = \left( n_{k}n_{k - 1}\ldots n_{0} \right)&lt;em>{B}\quad\text{ avec }\quad n&lt;/em>{i} \in ⟦0,B⟦$$
+On compte habituellement en base 10 mais un ordinateur compte en base 2
+car les circuits utilisés peuvent avoir deux états auxquels
+correspondent deux chiffres 0 et 1. On parle de numérotation binaire.
+Les éléments 0 et 1 sont appelés &lt;strong>BIT&lt;/strong> (Binary Digit), Un groupe de
+huit bits est nommé &lt;strong>Octet&lt;/strong> (&lt;strong>attention!&lt;/strong> Octet se dit &lt;strong>Byte&lt;/strong> en
+anglais.)&lt;/p></description></item><item><title/><link>http://localhost:1313/fr/docs/sup/02-intro_python/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1313/fr/docs/sup/02-intro_python/</guid><description>&lt;h1 id="introduction">
+ Introduction
+ &lt;a class="anchor" href="#introduction">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="définitions">
+ Définitions
+ &lt;a class="anchor" href="#d%c3%a9finitions">#&lt;/a>
+&lt;/h2>
+&lt;h4 id="algorithme-">
+ Algorithme :
+ &lt;a class="anchor" href="#algorithme-">#&lt;/a>
+&lt;/h4>
+&lt;p>C&amp;rsquo;est une suite finie d&amp;rsquo;opérations ou d&amp;rsquo;instructions permettant de
+résoudre des problèmes, par exemple : une recette de cuisine, un manuel
+d&amp;rsquo;installation, etc.&lt;/p>
+&lt;h4 id="programme-">
+ Programme :
+ &lt;a class="anchor" href="#programme-">#&lt;/a>
+&lt;/h4>
+&lt;p>Un programme est un algorithme écrit dans un langage de programmation,
+destine à être exécuté par une machine, pour résoudre un problème donne.&lt;/p>
+&lt;p>Nous utiliserons le langage &lt;strong>Python&lt;/strong>.&lt;/p>
+&lt;h1 id="notion-de-variable">
+ Notion de variable
+ &lt;a class="anchor" href="#notion-de-variable">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="définitions-1">
+ Définitions
+ &lt;a class="anchor" href="#d%c3%a9finitions-1">#&lt;/a>
+&lt;/h2>
+&lt;p>Une variable est une case mémoire qui a un &lt;strong>nom&lt;/strong> (un identificateur)
+et contient une &lt;strong>valeur&lt;/strong> et qui est utilisé au cours d&amp;rsquo;un programme.&lt;/p></description></item><item><title/><link>http://localhost:1313/fr/docs/sup/03-les_fonctions/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1313/fr/docs/sup/03-les_fonctions/</guid><description>&lt;h1 id="introduction">
+ Introduction
+ &lt;a class="anchor" href="#introduction">#&lt;/a>
+&lt;/h1>
+&lt;p>Pour mieux structurer nos programmes et les rendres reutilisables, on
+les regroupe dans des unites appelee &amp;ldquo;fonctions&amp;rdquo;.&lt;/p>
+&lt;p>Une fonction est donc un &amp;ldquo;bout de code&amp;rdquo;, un ensemble d&amp;rsquo;instructions qui
+est executee et renvoie un resultat a partir des donnes d&amp;rsquo;entree :&lt;/p>
+&lt;figure>
+&lt;p>&lt;img src="res/03-fonction.png" style="width:40.0%" />&lt;/p>
+&lt;figcaption>&lt;p>Schema d’une fonction python&lt;/p>&lt;/figcaption>
+&lt;/figure>
+&lt;h1 id="syntaxe">
+ Syntaxe
+ &lt;a class="anchor" href="#syntaxe">#&lt;/a>
+&lt;/h1>
+&lt;p>Pour creer une fonction, on utilise la syntaxe suivante:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-py" data-lang="py">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">def&lt;/span> &lt;span style="color:#a6e22e">ma_fonction&lt;/span>(x, y, z):
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e"># Bloc d&amp;#39;instructions&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>
+&lt;p>&lt;code>def&lt;/code> est un mot cle qui permet de commencer la definition d&amp;rsquo;une
+fonciton.&lt;/p></description></item><item><title/><link>http://localhost:1313/fr/docs/sup/04-les_listes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1313/fr/docs/sup/04-les_listes/</guid><description>&lt;h1 id="introduction">
+ Introduction
+ &lt;a class="anchor" href="#introduction">#&lt;/a>
+&lt;/h1>
+&lt;p>Une liste est un ensemble d&amp;rsquo;objets mis dans un ordre précis. Elles sont
+définies entre crochets et les éléments sont séparés par une virgule.&lt;/p>
+&lt;h4 id="syntaxe">
+ Syntaxe
+ &lt;a class="anchor" href="#syntaxe">#&lt;/a>
+&lt;/h4>
+&lt;p>L&amp;rsquo;identificateur (le nom) d&amp;rsquo;une liste suit les memes regles que les
+identificateurs de variables. On definit une liste vide comme suit:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-py" data-lang="py">&lt;span style="display:flex;">&lt;span>ma_liste &lt;span style="color:#f92672">=&lt;/span> []
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Sinon, une liste peut comporter des elements quelconques :&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-py" data-lang="py">&lt;span style="display:flex;">&lt;span>L &lt;span style="color:#f92672">=&lt;/span> [&lt;span style="color:#ae81ff">2&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;hello&amp;#34;&lt;/span>, &lt;span style="color:#ae81ff">3.5&lt;/span>, &lt;span style="color:#66d9ef">True&lt;/span>, &lt;span style="color:#ae81ff">20&lt;/span>, &lt;span style="color:#ae81ff">23&lt;/span>]
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>On peut creer une liste contenant n fois le meme objet :&lt;/p></description></item><item><title/><link>http://localhost:1313/fr/docs/sup/05-les_chaines/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1313/fr/docs/sup/05-les_chaines/</guid><description>&lt;h1 id="introduction">
+ Introduction
+ &lt;a class="anchor" href="#introduction">#&lt;/a>
+&lt;/h1>
+&lt;p>Une chaine de caractere est une variable qui contient du texte, un
+ensemble de caracteres qui se suivent dans un ordre précis. Elles sont
+définies entre guillemets (double quote) &lt;code>&amp;quot;&lt;/code>, ou entre apostrophes
+(simple quote) &lt;code>'&lt;/code>&lt;/p>
+&lt;h4 id="syntaxe">
+ Syntaxe
+ &lt;a class="anchor" href="#syntaxe">#&lt;/a>
+&lt;/h4>
+&lt;p>L&amp;rsquo;identificateur (le nom) d&amp;rsquo;une chaine de caracteres suit les memes
+regles que les identificateurs de variables. On definit une chaine vide
+comme suit:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-py" data-lang="py">&lt;span style="display:flex;">&lt;span>ma_chaine &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>autre_chaine &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#39;&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Sinon, une chaine de caracteres peut comporter des elements quelconques
+:&lt;/p></description></item><item><title/><link>http://localhost:1313/fr/docs/sup/06-les_tris/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1313/fr/docs/sup/06-les_tris/</guid><description>&lt;h2 id="algorithmes-de-tri">
+ Algorithmes de tri
+ &lt;a class="anchor" href="#algorithmes-de-tri">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="énoncé-du-problème">
+ Énoncé du problème
+ &lt;a class="anchor" href="#%c3%a9nonc%c3%a9-du-probl%c3%a8me">#&lt;/a>
+&lt;/h3>
+&lt;p>On souhaite réordonner une collection d&amp;rsquo;elements suivant une relation
+d&amp;rsquo;ordre déterminée. On peut, sans perte de generalite, simplifier
+l&amp;rsquo;etude des differentes methodes de tri en se limitant aux listes
+d&amp;rsquo;entiers, qu&amp;rsquo;on souhaite trier par ordre croissant.&lt;/p>
+&lt;p>Il s&amp;rsquo;agit donc d&amp;rsquo;elaborer une fonction &lt;code>tri(L)&lt;/code> qui prend en parametre
+une liste d&amp;rsquo;entier &lt;code>L&lt;/code> et qui permet de trier cette liste, et de
+renvoyer la liste triee.&lt;/p></description></item><item><title/><link>http://localhost:1313/fr/docs/sup/07-tuples_dictionnaires_ensembles/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1313/fr/docs/sup/07-tuples_dictionnaires_ensembles/</guid><description>&lt;h1 id="introduction">
+ Introduction
+ &lt;a class="anchor" href="#introduction">#&lt;/a>
+&lt;/h1>
+&lt;p>Les listes et les chaines de caracteres sont une maniere d&amp;rsquo;organiser et
+de structurer les donnees. On peut egalement organiser les donnees dans
+d&amp;rsquo;autres &lt;strong>structures de donnees&lt;/strong>. Chaque structure presente differents
+avantages et inconvenients suivant les situations.&lt;/p>
+&lt;h1 id="les-tuples">
+ Les Tuples
+ &lt;a class="anchor" href="#les-tuples">#&lt;/a>
+&lt;/h1>
+&lt;h4 id="syntaxe">
+ Syntaxe
+ &lt;a class="anchor" href="#syntaxe">#&lt;/a>
+&lt;/h4>
+&lt;p>L&amp;rsquo;identificateur (le nom) d&amp;rsquo;un tuple suit les memes regles que les
+identificateurs de variables. On definit un tuple comme suit:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-py" data-lang="py">&lt;span style="display:flex;">&lt;span>T &lt;span style="color:#f92672">=&lt;/span> ()
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>T2 &lt;span style="color:#f92672">=&lt;/span> (&lt;span style="color:#ae81ff">1&lt;/span>,) &lt;span style="color:#75715e"># La virgule est importante quand il y&amp;#39;a un seul element&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>T3 &lt;span style="color:#f92672">=&lt;/span> (&lt;span style="color:#ae81ff">1&lt;/span>, &lt;span style="color:#e6db74">&amp;#34;hello&amp;#34;&lt;/span>, &lt;span style="color:#ae81ff">3.14&lt;/span>, &lt;span style="color:#66d9ef">True&lt;/span>)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>On peut faire les operations de concatenation &lt;code>+&lt;/code> et de repetition &lt;code>*&lt;/code>
+sur un tuple&lt;/p></description></item></channel></rss>

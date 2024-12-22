@@ -1,0 +1,142 @@
+<!doctype html><html lang=fr-FR dir=ltr><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="
+  Algorithmes de tri
+  #
+
+
+  Énoncé du problème
+  #
+
+On souhaite réordonner une collection d&rsquo;elements suivant une relation
+d&rsquo;ordre déterminée. On peut, sans perte de generalite, simplifier
+l&rsquo;etude des differentes methodes de tri en se limitant aux listes
+d&rsquo;entiers, qu&rsquo;on souhaite trier par ordre croissant.
+Il s&rsquo;agit donc d&rsquo;elaborer une fonction tri(L) qui prend en parametre
+une liste d&rsquo;entier L et qui permet de trier cette liste, et de
+renvoyer la liste triee."><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#343a40"><meta name=color-scheme content="light dark"><meta property="og:url" content="http://localhost:1313/fr/docs/sup/06-les_tris/"><meta property="og:site_name" content="info-nf"><meta property="og:title" content="info-nf"><meta property="og:description" content="Algorithmes de tri # Énoncé du problème # On souhaite réordonner une collection d’elements suivant une relation d’ordre déterminée. On peut, sans perte de generalite, simplifier l’etude des differentes methodes de tri en se limitant aux listes d’entiers, qu’on souhaite trier par ordre croissant.
+Il s’agit donc d’elaborer une fonction tri(L) qui prend en parametre une liste d’entier L et qui permet de trier cette liste, et de renvoyer la liste triee."><meta property="og:locale" content="fr_FR"><meta property="og:type" content="article"><meta property="article:section" content="docs"><title>06 Les Tris | info-nf</title>
+<link rel=icon href=/favicon.png><link rel=manifest href=/manifest.json><link rel=canonical href=http://localhost:1313/fr/docs/sup/06-les_tris/><link rel=stylesheet href=/book.min.6c8b9d2a1fc95075ed7da46ca81060b39add8fff6741ac51259f768929281e2c.css integrity="sha256-bIudKh/JUHXtfaRsqBBgs5rdj/9nQaxRJZ92iSkoHiw=" crossorigin=anonymous><script defer src=/fuse.min.js></script><script defer src=/fr.search.min.0a7c2e2526478f685299931e35d261b568453569cc546ccf511939d076eb6dd1.js integrity="sha256-CnwuJSZHj2hSmZMeNdJhtWhFNWnMVGzPURk50HbrbdE=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/fr/><span>info-nf</span></a></h2><div class="book-search hidden"><input type=text id=book-search-input placeholder=Rechercher aria-label=Rechercher maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><script>document.querySelector(".book-search").classList.remove("hidden")</script><ul class=book-languages><li><input type=checkbox id=languages class=toggle>
+<label for=languages class="flex justify-between"><a role=button class="flex align-center"><img src=/svg/translate.svg class=book-icon alt=Languages>
+Francais</a></label><ul><li><a href=/>English</a></li></ul></li></ul><ul><li class=book-section-flat><input type=checkbox id=section-ffdbecff6f0c7ccf900e4462b9a45a4a class=toggle checked>
+<label for=section-ffdbecff6f0c7ccf900e4462b9a45a4a class="flex justify-between"><a role=button>Sup</a></label><ul><li><a href=/fr/docs/sup/00-system_info/>00 System Info</a></li><li><a href=/fr/docs/sup/01-codage/>01 Codage</a></li><li><a href=/fr/docs/sup/02-intro_python/>02 Intro Python</a></li><li><a href=/fr/docs/sup/03-les_fonctions/>03 Les Fonctions</a></li><li><a href=/fr/docs/sup/04-les_listes/>04 Les Listes</a></li><li><a href=/fr/docs/sup/05-les_chaines/>05 Les Chaines</a></li><li><a href=/fr/docs/sup/06-les_tris/ class=active>06 Les Tris</a></li><li><a href=/fr/docs/sup/07-tuples_dictionnaires_ensembles/>07 Tuples Dictionnaires Ensembles</a></li></ul></li><li class=book-section-flat><input type=checkbox id=section-0dffdbec383fb400778d964a8f20cb48 class=toggle>
+<label for=section-0dffdbec383fb400778d964a8f20cb48 class="flex justify-between"><a role=button>Spe</a></label><ul><li><a href=/fr/docs/spe/01-complexite/>01 Complexite</a></li><li><a href=/fr/docs/spe/02-algorithme_de_tri/>02 Algorithme De Tri</a></li><li><a href=/fr/docs/spe/03-arbre_binaire/>03 Arbre Binaire</a></li><li><a href=/fr/docs/spe/04-algorithme_glouton/>04 Algorithme Glouton</a></li><li><a href=/fr/docs/spe/05-programation_dynamique/>05 Programation Dynamique</a></li><li><a href=/fr/docs/spe/06-les_graphes/>06 Les Graphes</a></li><li><a href=/fr/docs/spe/07-sql/>07 SQL</a></li></ul></li></ul><ul><li><a href=/fr/posts/>Blog</a></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/svg/menu.svg class=book-icon alt=Menu></label><h3>06 Les Tris</h3><label for=toc-control><img src=/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#algorithmes-de-tri>Algorithmes de tri</a><ul><li><a href=#énoncé-du-problème>Énoncé du problème</a></li><li><a href=#tri-par-selection>Tri par selection</a></li><li><a href=#tri-par-insertion>Tri par insertion</a></li><li><a href=#tri-a-bulles>Tri a bulles</a></li><li><a href=#tri-par-fusion>Tri par fusion</a></li><li><a href=#tri-rapide>Tri Rapide</a></li></ul></li></ul></nav></aside></header><article class="markdown book-article"><h2 id=algorithmes-de-tri>Algorithmes de tri
+<a class=anchor href=#algorithmes-de-tri>#</a></h2><h3 id=énoncé-du-problème>Énoncé du problème
+<a class=anchor href=#%c3%a9nonc%c3%a9-du-probl%c3%a8me>#</a></h3><p>On souhaite réordonner une collection d&rsquo;elements suivant une relation
+d&rsquo;ordre déterminée. On peut, sans perte de generalite, simplifier
+l&rsquo;etude des differentes methodes de tri en se limitant aux listes
+d&rsquo;entiers, qu&rsquo;on souhaite trier par ordre croissant.</p><p>Il s&rsquo;agit donc d&rsquo;elaborer une fonction <code>tri(L)</code> qui prend en parametre
+une liste d&rsquo;entier <code>L</code> et qui permet de trier cette liste, et de
+renvoyer la liste triee.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-py data-lang=py><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>tri</span>(L):
+</span></span><span style=display:flex><span>    <span style=color:#75715e># ...</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> L
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Programme de test</span>
+</span></span><span style=display:flex><span>L <span style=color:#f92672>=</span> [<span style=color:#ae81ff>9</span>, <span style=color:#ae81ff>5</span>, <span style=color:#ae81ff>8</span>, <span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>12</span>, <span style=color:#ae81ff>4</span>]
+</span></span><span style=display:flex><span>tri(L)
+</span></span><span style=display:flex><span>print(L)
+</span></span></code></pre></div><p>Dans toute la suite, on pose $n = \text{ len}(L)$.</p><h3 id=tri-par-selection>Tri par selection
+<a class=anchor href=#tri-par-selection>#</a></h3><p>Le tri par <strong>selection</strong> consiste a <strong>selectionner</strong> dans chaque
+iteration le prochain element a placer dans la liste triee, qui est le
+minimum des elements non encore tries. C&rsquo;est a dire, en faisant varier
+$i$ de $0$ a $n$, a chaque iteration, on va remetre le $i^{\text{eme}}$
+element de la liste triee, qui est <code>min(L[i:n])</code>, a sa place <code>L[i]</code>.</p><h4 id=implementation>Implementation
+<a class=anchor href=#implementation>#</a></h4><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-py data-lang=py><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>tri_selection</span>(L):
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> range(len(L)<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>):
+</span></span><span style=display:flex><span>        indice_min <span style=color:#f92672>=</span> i
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> j <span style=color:#f92672>in</span> range(i<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>,len(L)):
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> L[j] <span style=color:#f92672>&lt;</span> L[indice_min]:
+</span></span><span style=display:flex><span>                indice_min <span style=color:#f92672>=</span> j
+</span></span><span style=display:flex><span>        L[i],L[indice_min] <span style=color:#f92672>=</span> L[indice_min],L[i]
+</span></span></code></pre></div><h4 id=complexite>Complexite
+<a class=anchor href=#complexite>#</a></h4><p>On a deux boucles imbriquées, la boucle intérieure comporte des
+instructions de complexité $O(1)$, et se répète <code>n-i</code> fois, la boucle
+exterieure se repete pour <code>i=0</code> a <code>i=n</code>, donc la complexite est
+$O\left( n^{2} \right)$.</p><h3 id=tri-par-insertion>Tri par insertion
+<a class=anchor href=#tri-par-insertion>#</a></h3><p>Le tri par <strong>insertion</strong> consiste a <strong>inserer</strong>, un par un, les elements
+de la liste non triee dans la liste triee.</p><h4 id=implementation-1>Implementation
+<a class=anchor href=#implementation-1>#</a></h4><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-py data-lang=py><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>insertionSort</span>(L):
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> range(<span style=color:#ae81ff>1</span>, len(L)):
+</span></span><span style=display:flex><span>        cle <span style=color:#f92672>=</span> L[i]
+</span></span><span style=display:flex><span>        j <span style=color:#f92672>=</span> i<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>while</span> j <span style=color:#f92672>&gt;=</span> <span style=color:#ae81ff>0</span> <span style=color:#f92672>and</span> cle <span style=color:#f92672>&lt;</span> L[j] :
+</span></span><span style=display:flex><span>                L[j <span style=color:#f92672>+</span> <span style=color:#ae81ff>1</span>] <span style=color:#f92672>=</span> L[j]
+</span></span><span style=display:flex><span>                j <span style=color:#f92672>-=</span> <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>        L[j <span style=color:#f92672>+</span> <span style=color:#ae81ff>1</span>] <span style=color:#f92672>=</span> cle
+</span></span></code></pre></div><h4 id=complexite-1>Complexite
+<a class=anchor href=#complexite-1>#</a></h4><p>La complexite de la boucle interieure depend de l&rsquo;etat de la liste.</p><ul><li><p>Au meilleur des cas : La liste est deja triee, la boucle while ne
+s&rsquo;execute pas. Complexite $O(n)$.</p></li><li><p>Au pire des cas : La liste est triee a l&rsquo;ordre inverse, la boucle
+while se repete <code>i</code> fois, donc la complexite est
+$O\left( n^{2} \right)$.</p></li></ul><h3 id=tri-a-bulles>Tri a bulles
+<a class=anchor href=#tri-a-bulles>#</a></h3><p>Le tri a <strong>bulles</strong> consiste a faire plusieurs passages de comparaisons
+deux-a-deux, ou on va echanger deux elements si il ne sont pas au bon
+ordre. Les elements vont se deplacer petit a petit jusqu&rsquo;a trouver leurs
+places. Ce deplacement global des elements ressemble aux deplacements de
+<strong>bulles</strong> qui remontent dans un liquide.</p><h4 id=implementation-2>Implementation
+<a class=anchor href=#implementation-2>#</a></h4><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-py data-lang=py><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>bubbleSort</span>(L):
+</span></span><span style=display:flex><span>    n <span style=color:#f92672>=</span> len(L)
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> range(n):
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> j <span style=color:#f92672>in</span> range(<span style=color:#ae81ff>0</span>, n<span style=color:#f92672>-</span>i<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>):
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> L[j] <span style=color:#f92672>&gt;</span> L[j<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>]:
+</span></span><span style=display:flex><span>                L[j], L[j<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>] <span style=color:#f92672>=</span> L[j<span style=color:#f92672>+</span><span style=color:#ae81ff>1</span>], L[j]
+</span></span></code></pre></div><h4 id=complexite-2>Complexite
+<a class=anchor href=#complexite-2>#</a></h4><p>La complexite est $O\left( n^{2} \right)$</p><h3 id=tri-par-fusion>Tri par fusion
+<a class=anchor href=#tri-par-fusion>#</a></h3><p>Le tri par <strong>fusion</strong> est un tri recursif, ou on decoupe la liste en
+deux, on trie chaque partie a l&rsquo;aide d&rsquo;un appel recursif, puis on
+<strong>fusionne</strong> les deux listes triees en une seule liste finale.</p><h4 id=implementation-3>Implementation
+<a class=anchor href=#implementation-3>#</a></h4><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-py data-lang=py><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>fusion</span>(L, R):
+</span></span><span style=display:flex><span>    i <span style=color:#f92672>=</span> j <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span>    S <span style=color:#f92672>=</span> []
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>while</span> i <span style=color:#f92672>&lt;</span> len(L) <span style=color:#f92672>and</span> j <span style=color:#f92672>&lt;</span> len(R):
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> L[i] <span style=color:#f92672>&lt;=</span> R[j]:
+</span></span><span style=display:flex><span>            S<span style=color:#f92672>.</span>append(L[i])
+</span></span><span style=display:flex><span>            i <span style=color:#f92672>+=</span> <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>else</span>:
+</span></span><span style=display:flex><span>            S<span style=color:#f92672>.</span>append(R[j])
+</span></span><span style=display:flex><span>            j <span style=color:#f92672>+=</span> <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>while</span> i <span style=color:#f92672>&lt;</span> len(L):
+</span></span><span style=display:flex><span>        S<span style=color:#f92672>.</span>append(L[i])
+</span></span><span style=display:flex><span>        i <span style=color:#f92672>+=</span> <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>while</span> j <span style=color:#f92672>&lt;</span> len(R):
+</span></span><span style=display:flex><span>        S<span style=color:#f92672>.</span>append(R[j])
+</span></span><span style=display:flex><span>        j <span style=color:#f92672>+=</span> <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> S
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>tri_fusion</span>(L):
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> len(L) <span style=color:#f92672>&lt;=</span> <span style=color:#ae81ff>1</span>:
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> L
+</span></span><span style=display:flex><span>    mid <span style=color:#f92672>=</span> len(L)<span style=color:#f92672>//</span><span style=color:#ae81ff>2</span>
+</span></span><span style=display:flex><span>    L1 <span style=color:#f92672>=</span> L[:mid]
+</span></span><span style=display:flex><span>    L2 <span style=color:#f92672>=</span> L[mid:]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    L1 <span style=color:#f92672>=</span> tri_fusion(L1)
+</span></span><span style=display:flex><span>    L2 <span style=color:#f92672>=</span> tri_fusion(L2)
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> fusion(L1, L2)
+</span></span></code></pre></div><h4 id=complexite-3>Complexite
+<a class=anchor href=#complexite-3>#</a></h4><p>La complexite $C(n)$ verifie la relation de recurrence :
+$C(n) = 2C\left( \frac{n}{2} \right) + O(n)$</p><p>La complexite est donc $O\left( n\log(n) \right)$</p><h3 id=tri-rapide>Tri Rapide
+<a class=anchor href=#tri-rapide>#</a></h3><p>Le tri rapide (ou tri <strong>pivot</strong>) est un tri recursif qui consiste a
+choisir un element <strong>pivot</strong> <code>p</code> suivant lequel on decoupe la liste en
+deux listes : <code>L1</code> les elements inferieurs au pivot, et <code>L2</code> les
+elements superieurs au pivot, on trie alors chaque partie a l&rsquo;aide d&rsquo;un
+appel recursif, la liste totale triee est donc : <code>L1 + [p] + L2</code>.</p><h4 id=implementation-4>Implementation
+<a class=anchor href=#implementation-4>#</a></h4><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-py data-lang=py><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>quick_sort</span>(L):
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> len(L) <span style=color:#f92672>&lt;=</span> <span style=color:#ae81ff>1</span>:
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> L
+</span></span><span style=display:flex><span>    pivot <span style=color:#f92672>=</span> L[<span style=color:#ae81ff>0</span>]
+</span></span><span style=display:flex><span>    L1<span style=color:#f92672>=</span>[]
+</span></span><span style=display:flex><span>    L2<span style=color:#f92672>=</span>[]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> range(<span style=color:#ae81ff>1</span>,len(L)):
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> L[i] <span style=color:#f92672>&lt;=</span> p :
+</span></span><span style=display:flex><span>            L1<span style=color:#f92672>.</span>append(L[i])
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> L[i] <span style=color:#f92672>&lt;</span> p :
+</span></span><span style=display:flex><span>            L2<span style=color:#f92672>.</span>append(L[i])
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> quick_sort(L1) <span style=color:#f92672>+</span> [p] <span style=color:#f92672>+</span> quick_sort(L2)
+</span></span></code></pre></div><h4 id=complexite-4>Complexite
+<a class=anchor href=#complexite-4>#</a></h4><p>On note $C(n)$ la complexite de la fonction <code>quick_sort(L)</code>, avec n =
+len(L)</p><p>La boucle <code>for</code> a une complexite de $O(n)$</p><p>Le cout des appels recursifs <code>quick_sort(L1)</code> et <code>quick_sort(L2)</code> depend
+des longeurs des listes <code>L1</code> et <code>L2</code>:</p><ul><li>Au pire des cas :</li></ul><p>Le pivot est le plus grand (ou plus petit) element de la liste, <code>L1</code> et
+<code>L2</code> auront les tailles <code>n-1</code> et <code>0</code>, donc : $$C(n) = O(n) + C(n-1) +
+C(0)$$ Ce qui donne $$C(n) = O(n^2)$$</p><ul><li>Au meilleur des cas :</li></ul><p>Le pivot est au milieu de la liste, les listes <code>L1</code> et <code>L2</code> sont de
+taille a peu pres <code>n/2</code>, donc : $$C(n) = O(n) + 2C(n/2)$$ Ce qui donne
+$$C(n) = O(nlog(n))$$</p></article><footer class=book-footer><div class="flex flex-wrap justify-between"></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#algorithmes-de-tri>Algorithmes de tri</a><ul><li><a href=#énoncé-du-problème>Énoncé du problème</a></li><li><a href=#tri-par-selection>Tri par selection</a></li><li><a href=#tri-par-insertion>Tri par insertion</a></li><li><a href=#tri-a-bulles>Tri a bulles</a></li><li><a href=#tri-par-fusion>Tri par fusion</a></li><li><a href=#tri-rapide>Tri Rapide</a></li></ul></li></ul></nav></div></aside></main></body></html>

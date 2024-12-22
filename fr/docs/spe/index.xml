@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>info-nf</title><link>http://localhost:1313/fr/docs/spe/</link><description>Recent content on info-nf</description><generator>Hugo</generator><language>fr-FR</language><atom:link href="http://localhost:1313/fr/docs/spe/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>http://localhost:1313/fr/docs/spe/01-complexite/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1313/fr/docs/spe/01-complexite/</guid><description>&lt;h1 id="introduction">
+ Introduction
+ &lt;a class="anchor" href="#introduction">#&lt;/a>
+&lt;/h1>
+&lt;p>La complexité d&amp;rsquo;un algorithme est une mesure des ressources nécessaires
+à son exécution, il y a deux ressources principales:&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>Complexité spatiale: quantité de mémoire requise.&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Complexité temporelle: temps de calcul à prévoir.&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;p>Le but de ces mesures est de comparer les algorithmes pour pouvoir
+identifier l&amp;rsquo;algorithme le plus efficace.&lt;/p>
+&lt;p>On ne mesure pas les valeurs exactes (le nombre d&amp;rsquo;octets nécessaires ou
+le nombre de secondes) mais uniquement des ordres de grandeurs en
+fonction des paramètres d&amp;rsquo;entrée.&lt;/p></description></item><item><title/><link>http://localhost:1313/fr/docs/spe/02-algorithme_de_tri/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1313/fr/docs/spe/02-algorithme_de_tri/</guid><description>&lt;h1 id="algorithmes-de-tri">
+ Algorithmes de tri
+ &lt;a class="anchor" href="#algorithmes-de-tri">#&lt;/a>
+&lt;/h1>
+&lt;p>On souhaite réordonner une collection d&amp;rsquo;éléments suivant une relation
+d&amp;rsquo;ordre déterminée. On peut, sans perte de généralité, simplifier
+l&amp;rsquo;étude des différentes méthodes de tri en se limitant aux listes
+d&amp;rsquo;entiers, qu&amp;rsquo;on souhaite trier par ordre croissant.&lt;/p>
+&lt;p>Il s&amp;rsquo;agit donc d&amp;rsquo;élaborer une fonction &lt;code>tri(L)&lt;/code> qui prend en paramètre
+une liste d&amp;rsquo;entier &lt;code>L&lt;/code> et qui permet de trier cette liste, et de
+renvoyer la liste triée.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-py" data-lang="py">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">def&lt;/span> &lt;span style="color:#a6e22e">tri&lt;/span>(L):
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e"># ...&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> L
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e"># Programme de test&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>L &lt;span style="color:#f92672">=&lt;/span> [&lt;span style="color:#ae81ff">9&lt;/span>, &lt;span style="color:#ae81ff">5&lt;/span>, &lt;span style="color:#ae81ff">8&lt;/span>, &lt;span style="color:#ae81ff">1&lt;/span>, &lt;span style="color:#ae81ff">12&lt;/span>, &lt;span style="color:#ae81ff">4&lt;/span>]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>tri(L)
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>print(L)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Dans toute la suite, on pose $n = \operatorname{len}(L)$.&lt;/p></description></item><item><title/><link>http://localhost:1313/fr/docs/spe/03-arbre_binaire/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1313/fr/docs/spe/03-arbre_binaire/</guid><description>&lt;h1 id="arbres-binaires">
+ Arbres binaires
+ &lt;a class="anchor" href="#arbres-binaires">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="définitions">
+ Définitions
+ &lt;a class="anchor" href="#d%c3%a9finitions">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;strong>En mathématique:&lt;/strong> Un arbre est un cas spécial de graphe acyclique
+oriente, ou tous les nœuds sauf la racine ont un unique parent&lt;/p>
+&lt;p>&lt;strong>En informatique:&lt;/strong> C&amp;rsquo;est une structure de données récursive utilisée
+pour représenter ce type de graphes.&lt;/p>
+&lt;h2 id="exemples-et-terminologie">
+ Exemples et terminologie
+ &lt;a class="anchor" href="#exemples-et-terminologie">#&lt;/a>
+&lt;/h2>
+&lt;figure>
+&lt;p>&lt;img src="http://localhost:1313/spe/res/03-arbre_1.png" style="width:60.0%" />&lt;/p>
+&lt;figcaption>&lt;p>Un arbre contenant des entiers&lt;/p>&lt;/figcaption>
+&lt;/figure>
+&lt;p>Un arbre est un ensemble de &lt;strong>noeuds&lt;/strong> et d&amp;rsquo;&lt;strong>arete&lt;/strong> reliant ces
+nœudsChaque noeud a une &lt;strong>etiquette&lt;/strong> : une valeur ou donnee associee au
+noeud.&lt;br>
+&lt;strong>L&amp;rsquo;ordre&lt;/strong> ou la &lt;strong>taille&lt;/strong> d&amp;rsquo;un arbre est le nombre de noeuds qui le
+compose.&lt;br>
+La &lt;strong>racine&lt;/strong> d&amp;rsquo;un arbre est le noeud le plus haut dans l&amp;rsquo;hierarchie de
+l&amp;rsquo;arbre, c&amp;rsquo;est le noeud &amp;ldquo;de depart&amp;rdquo;.&lt;br>
+Tous les noeuds sauf la racine ont un unique &lt;strong>pere&lt;/strong>, c&amp;rsquo;est le noeud
+directement au-dessus dans l&amp;rsquo;hierarchie.&lt;br>
+Les noeuds ont 0, 1, ou plusieurs &lt;strong>fils&lt;/strong>. Les noeuds sans fils sont
+appele &lt;strong>feuilles&lt;/strong> de l&amp;rsquo;arbre.&lt;br>
+Le &lt;strong>degree&lt;/strong> d&amp;rsquo;un noeud est le nombre de fils qu&amp;rsquo;il a.&lt;br>
+La &lt;strong>profondeur&lt;/strong> d&amp;rsquo;un noeud est le nombre d&amp;rsquo;arete necessaire pour aller
+du noeud a la racine.&lt;br>
+On s&amp;rsquo;interesse dans ce cours aux arbres &lt;strong>binaires&lt;/strong>, c-a-d, les arbres
+ayant des noeuds de degree maximum 2.\&lt;/p></description></item><item><title/><link>http://localhost:1313/fr/docs/spe/04-algorithme_glouton/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1313/fr/docs/spe/04-algorithme_glouton/</guid><description>&lt;h1 id="algorithmes-gloutons">
+ Algorithmes Gloutons
+ &lt;a class="anchor" href="#algorithmes-gloutons">#&lt;/a>
+&lt;/h1>
+&lt;p>Un algorithme glouton est un algorithme qui effectue a chaque instant,
+le meilleur choix possible sur le moment, sans retour en arrièrearrière
+ni anticipation des étapes suivantes, dans l&amp;rsquo;objectif d&amp;rsquo;atteindre au
+final un résultat optimal.&lt;/p>
+&lt;h2 id="problème-1--plus-grand-nombre">
+ Problème 1 : Plus grand nombre
+ &lt;a class="anchor" href="#probl%c3%a8me-1--plus-grand-nombre">#&lt;/a>
+&lt;/h2>
+&lt;p>On souhaite ecrire le plus grand nombre possible avec un ensemble de
+chiffres donnes, en n&amp;rsquo;utilisant chaque chiffre qu&amp;rsquo;une seule fois.&lt;/p>
+&lt;h4 id="exemples-">
+ Exemples :
+ &lt;a class="anchor" href="#exemples-">#&lt;/a>
+&lt;/h4>
+&lt;p>Avec les chiffres 2, 3, 8, 6, 4, 7 le plus grand nombre est : 876432&lt;/p></description></item><item><title/><link>http://localhost:1313/fr/docs/spe/05-programation_dynamique/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1313/fr/docs/spe/05-programation_dynamique/</guid><description>&lt;h1 id="programation-dynamique">
+ Programation Dynamique
+ &lt;a class="anchor" href="#programation-dynamique">#&lt;/a>
+&lt;/h1>
+&lt;p>On considere le programme python suivant, qui permet de calculer le
+nieme terme de la suite fibonacci :&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">def&lt;/span> &lt;span style="color:#a6e22e">fibo&lt;/span>(n):
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (n &lt;span style="color:#f92672">==&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#f92672">or&lt;/span> n &lt;span style="color:#f92672">==&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>):
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> fibo(n&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>) &lt;span style="color:#f92672">+&lt;/span> fibo(n&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">2&lt;/span>)
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Pour &lt;code>n = 4&lt;/code> on remarque l&amp;rsquo;arbre des appels suivant :&lt;/p>
+&lt;figure>
+&lt;p>&lt;img src="res/05-fibo_graph.png" style="width:50.0%" />&lt;/p>
+&lt;figcaption>&lt;p>Arbre d’appels recursifs.&lt;/p>&lt;/figcaption>
+&lt;/figure>
+&lt;p>Cet algorithme recursif est de complexite $O\left( \varphi^{n} \right)$.
+Ceci est du au fait que cet algorithme resoud les memes sous-problemes
+plusieurs fois (&lt;code>fibo(2)&lt;/code> par exemple, qui est appele 2 fois).&lt;/p></description></item><item><title/><link>http://localhost:1313/fr/docs/spe/06-les_graphes/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1313/fr/docs/spe/06-les_graphes/</guid><description>&lt;h1 id="les-graphes">
+ Les graphes
+ &lt;a class="anchor" href="#les-graphes">#&lt;/a>
+&lt;/h1>
+&lt;p>Un graphe est un ensemble de sommets (noeuds) reliee par des aretes
+(arcs)&lt;/p>
+&lt;figure>
+&lt;p>&lt;img src="res/07-graph.png" style="width:50.0%" />&lt;/p>
+&lt;figcaption>&lt;p>Graphe&lt;/p>&lt;/figcaption>
+&lt;/figure>
+&lt;p>$G = (V,E)$, avec $V$ l&amp;rsquo;ensemble de noeuds, $E$ l&amp;rsquo;ensemble d&amp;rsquo;aretes.&lt;/p>
+&lt;h2 id="notions-de-bases">
+ Notions de bases
+ &lt;a class="anchor" href="#notions-de-bases">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>L&amp;rsquo;Ordre d&amp;rsquo;un graphe: c&amp;rsquo;est le nombre de noeuds du graphe :
+$\text{card}(V)$&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Graphe oriente / non-oriente&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Graphe pondere / non-pondere&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Degree d&amp;rsquo;un noeud, degree entrant, degree sortant&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Chaine, cycle&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Chaine eulerienne&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Chaine hamiltonienne&lt;/p></description></item><item><title/><link>http://localhost:1313/fr/docs/spe/07-sql/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>http://localhost:1313/fr/docs/spe/07-sql/</guid><description>&lt;h1 id="introduction">
+ Introduction
+ &lt;a class="anchor" href="#introduction">#&lt;/a>
+&lt;/h1>
+&lt;p>Les bases de donnes SQL suivent le modele &lt;strong>relationel&lt;/strong>, qui permet
+d&amp;rsquo;organiser les donnes dans plusieurs &lt;strong>tables&lt;/strong> composes de colonnes&lt;/p></description></item></channel></rss>

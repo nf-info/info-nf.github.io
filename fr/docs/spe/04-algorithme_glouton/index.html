@@ -1,0 +1,91 @@
+<!doctype html><html lang=fr-FR dir=ltr><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="
+  Algorithmes Gloutons
+  #
+
+Un algorithme glouton est un algorithme qui effectue a chaque instant,
+le meilleur choix possible sur le moment, sans retour en arrièrearrière
+ni anticipation des étapes suivantes, dans l&rsquo;objectif d&rsquo;atteindre au
+final un résultat optimal.
+
+  Problème 1 : Plus grand nombre
+  #
+
+On souhaite ecrire le plus grand nombre possible avec un ensemble de
+chiffres donnes, en n&rsquo;utilisant chaque chiffre qu&rsquo;une seule fois.
+
+  Exemples :
+  #
+
+Avec les chiffres 2, 3, 8, 6, 4, 7 le plus grand nombre est : 876432"><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#343a40"><meta name=color-scheme content="light dark"><meta property="og:url" content="http://localhost:1313/fr/docs/spe/04-algorithme_glouton/"><meta property="og:site_name" content="info-nf"><meta property="og:title" content="info-nf"><meta property="og:description" content="Algorithmes Gloutons # Un algorithme glouton est un algorithme qui effectue a chaque instant, le meilleur choix possible sur le moment, sans retour en arrièrearrière ni anticipation des étapes suivantes, dans l’objectif d’atteindre au final un résultat optimal.
+Problème 1 : Plus grand nombre # On souhaite ecrire le plus grand nombre possible avec un ensemble de chiffres donnes, en n’utilisant chaque chiffre qu’une seule fois.
+Exemples : # Avec les chiffres 2, 3, 8, 6, 4, 7 le plus grand nombre est : 876432"><meta property="og:locale" content="fr_FR"><meta property="og:type" content="article"><meta property="article:section" content="docs"><title>04 Algorithme Glouton | info-nf</title>
+<link rel=icon href=/favicon.png><link rel=manifest href=/manifest.json><link rel=canonical href=http://localhost:1313/fr/docs/spe/04-algorithme_glouton/><link rel=stylesheet href=/book.min.6c8b9d2a1fc95075ed7da46ca81060b39add8fff6741ac51259f768929281e2c.css integrity="sha256-bIudKh/JUHXtfaRsqBBgs5rdj/9nQaxRJZ92iSkoHiw=" crossorigin=anonymous><script defer src=/fuse.min.js></script><script defer src=/fr.search.min.0a7c2e2526478f685299931e35d261b568453569cc546ccf511939d076eb6dd1.js integrity="sha256-CnwuJSZHj2hSmZMeNdJhtWhFNWnMVGzPURk50HbrbdE=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/fr/><span>info-nf</span></a></h2><div class="book-search hidden"><input type=text id=book-search-input placeholder=Rechercher aria-label=Rechercher maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><script>document.querySelector(".book-search").classList.remove("hidden")</script><ul class=book-languages><li><input type=checkbox id=languages class=toggle>
+<label for=languages class="flex justify-between"><a role=button class="flex align-center"><img src=/svg/translate.svg class=book-icon alt=Languages>
+Francais</a></label><ul><li><a href=/>English</a></li></ul></li></ul><ul><li class=book-section-flat><input type=checkbox id=section-ffdbecff6f0c7ccf900e4462b9a45a4a class=toggle>
+<label for=section-ffdbecff6f0c7ccf900e4462b9a45a4a class="flex justify-between"><a role=button>Sup</a></label><ul><li><a href=/fr/docs/sup/00-system_info/>00 System Info</a></li><li><a href=/fr/docs/sup/01-codage/>01 Codage</a></li><li><a href=/fr/docs/sup/02-intro_python/>02 Intro Python</a></li><li><a href=/fr/docs/sup/03-les_fonctions/>03 Les Fonctions</a></li><li><a href=/fr/docs/sup/04-les_listes/>04 Les Listes</a></li><li><a href=/fr/docs/sup/05-les_chaines/>05 Les Chaines</a></li><li><a href=/fr/docs/sup/06-les_tris/>06 Les Tris</a></li><li><a href=/fr/docs/sup/07-tuples_dictionnaires_ensembles/>07 Tuples Dictionnaires Ensembles</a></li></ul></li><li class=book-section-flat><input type=checkbox id=section-0dffdbec383fb400778d964a8f20cb48 class=toggle checked>
+<label for=section-0dffdbec383fb400778d964a8f20cb48 class="flex justify-between"><a role=button>Spe</a></label><ul><li><a href=/fr/docs/spe/01-complexite/>01 Complexite</a></li><li><a href=/fr/docs/spe/02-algorithme_de_tri/>02 Algorithme De Tri</a></li><li><a href=/fr/docs/spe/03-arbre_binaire/>03 Arbre Binaire</a></li><li><a href=/fr/docs/spe/04-algorithme_glouton/ class=active>04 Algorithme Glouton</a></li><li><a href=/fr/docs/spe/05-programation_dynamique/>05 Programation Dynamique</a></li><li><a href=/fr/docs/spe/06-les_graphes/>06 Les Graphes</a></li><li><a href=/fr/docs/spe/07-sql/>07 SQL</a></li></ul></li></ul><ul><li><a href=/fr/posts/>Blog</a></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/svg/menu.svg class=book-icon alt=Menu></label><h3>04 Algorithme Glouton</h3><label for=toc-control><img src=/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#problème-1--plus-grand-nombre>Problème 1 : Plus grand nombre</a><ul><li></li></ul></li><li><a href=#problème-2--rendu-de-monnaie>Problème 2 : Rendu de monnaie</a><ul><li></li></ul></li><li><a href=#probleme-3--fractions-égyptiennes>Probleme 3 : Fractions Égyptiennes</a><ul><li></li></ul></li><li><a href=#problème-4--sélection-dactivités>Problème 4 : Sélection d&rsquo;activités</a></li></ul></nav></aside></header><article class="markdown book-article"><h1 id=algorithmes-gloutons>Algorithmes Gloutons
+<a class=anchor href=#algorithmes-gloutons>#</a></h1><p>Un algorithme glouton est un algorithme qui effectue a chaque instant,
+le meilleur choix possible sur le moment, sans retour en arrièrearrière
+ni anticipation des étapes suivantes, dans l&rsquo;objectif d&rsquo;atteindre au
+final un résultat optimal.</p><h2 id=problème-1--plus-grand-nombre>Problème 1 : Plus grand nombre
+<a class=anchor href=#probl%c3%a8me-1--plus-grand-nombre>#</a></h2><p>On souhaite ecrire le plus grand nombre possible avec un ensemble de
+chiffres donnes, en n&rsquo;utilisant chaque chiffre qu&rsquo;une seule fois.</p><h4 id=exemples->Exemples :
+<a class=anchor href=#exemples->#</a></h4><p>Avec les chiffres 2, 3, 8, 6, 4, 7 le plus grand nombre est : 876432</p><p>On remarque que pour avoir le plus grand nombre possible, on place a
+chaque ́étape le chiffre le plus grand a gauche (dans la position avec
+le poids le plus lourd). On fait donc a chaque ́étape le meilleur choix
+possible; C&rsquo;est un algorithme glouton.</p><p>Donner un programme qui prend plusieurs chiffres, et renvoie le plus
+grand nombre</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-py data-lang=py><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>plusGrandNombre</span> (L) :
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> <span style=color:#e6db74>&#39;&#39;</span><span style=color:#f92672>.</span>join(map(str, sorted(L, reverse <span style=color:#f92672>=</span> <span style=color:#66d9ef>True</span>)))
+</span></span></code></pre></div><h2 id=problème-2--rendu-de-monnaie>Problème 2 : Rendu de monnaie
+<a class=anchor href=#probl%c3%a8me-2--rendu-de-monnaie>#</a></h2><p>On considère des pièces de monnaie de $1,2,$ et $5$ centimes. On veut
+trouver la combinaison avec le nombre minimum de pièces pour obtenir
+exactement $S$ centimes.</p><h4 id=exemple->Exemple :
+<a class=anchor href=#exemple->#</a></h4><p>Pour $S = 7$, on choisit les pièces $5$ et $2$. Pour $S = 18$ on choisit
+les pièces $5,5,5,2,1$.</p><p>Donner un programme qui prend un entier prix, et renvoie les pièces a
+rendre dans l&rsquo;ordre décroissant.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-py data-lang=py><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>rendu_monnaie</span>(S):
+</span></span><span style=display:flex><span>    R <span style=color:#f92672>=</span> []
+</span></span><span style=display:flex><span>    R <span style=color:#f92672>+=</span> [<span style=color:#ae81ff>5</span>] <span style=color:#f92672>*</span> (S<span style=color:#f92672>//</span><span style=color:#ae81ff>5</span>)
+</span></span><span style=display:flex><span>    S <span style=color:#f92672>=</span> S <span style=color:#f92672>%</span> <span style=color:#ae81ff>5</span>
+</span></span><span style=display:flex><span>    R <span style=color:#f92672>+=</span> [<span style=color:#ae81ff>2</span>] <span style=color:#f92672>*</span> (S<span style=color:#f92672>//</span><span style=color:#ae81ff>2</span>)
+</span></span><span style=display:flex><span>    S <span style=color:#f92672>=</span> S <span style=color:#f92672>%</span> <span style=color:#ae81ff>2</span>
+</span></span><span style=display:flex><span>    R <span style=color:#f92672>+=</span> [<span style=color:#ae81ff>1</span>] <span style=color:#f92672>*</span> S
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> R
+</span></span></code></pre></div><p>Essayons de résoudre le même probleme pour le systeme de monnaie
+$4,3,1$. Pour $S = 6$, l&rsquo;algorithme glouton donne $4,1,1$. Alors que la
+solution optimale est $3,3$.</p><p>title: &ldquo;Attention :&rdquo;, [ Les algorithmes glouton n&rsquo;arrivent pas toujours
+a trouver la solution globalement optimale car ils n&rsquo;essayent pas toutes
+les combinaisons possibles. Ils peuvent s&rsquo;engager trop tˆot sur certains
+choix, les empˆechant de trouver la meilleure solution globale par la
+suite ]</p><h2 id=probleme-3--fractions-égyptiennes>Probleme 3 : Fractions Égyptiennes
+<a class=anchor href=#probleme-3--fractions-%c3%a9gyptiennes>#</a></h2><p>Une fraction égyptienne est une fraction de numerateur égal a 1. On
+souhaite ́ecrire une fraction $$\frac{a}{b}$$, comme somme de fractions
+́egyptiennes avec des denominateurs tous différents.</p><h4 id=exemple--1>Exemple :
+<a class=anchor href=#exemple--1>#</a></h4><p>La fraction $\frac{2}{3} = \frac{1}{2} + \frac{1}{6}$<br><br>La fraction $\frac{2}{5} = \frac{1}{3} + \frac{1}{15}$</p><p>La fonction prend en paramètres $a$ et $b$ et renvoie la liste des
+dénominateurs des fractions qui composent la somme.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-py data-lang=py><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>fractions_egy</span>(a, b):
+</span></span><span style=display:flex><span>    i <span style=color:#f92672>=</span> <span style=color:#ae81ff>2</span>
+</span></span><span style=display:flex><span>    R <span style=color:#f92672>=</span> []
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>while</span> a <span style=color:#f92672>&gt;</span> <span style=color:#ae81ff>0</span>:
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> a<span style=color:#f92672>*</span>i <span style=color:#f92672>-</span> b <span style=color:#f92672>&gt;=</span> <span style=color:#ae81ff>0</span> :
+</span></span><span style=display:flex><span>            a, b <span style=color:#f92672>=</span> a<span style=color:#f92672>*</span>i <span style=color:#f92672>-</span> b, b<span style=color:#f92672>*</span>i
+</span></span><span style=display:flex><span>            R<span style=color:#f92672>.</span>append(i)
+</span></span><span style=display:flex><span>        i <span style=color:#f92672>+=</span> <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> R
+</span></span></code></pre></div><h2 id=problème-4--sélection-dactivités>Problème 4 : Sélection d&rsquo;activités
+<a class=anchor href=#probl%c3%a8me-4--s%c3%a9lection-dactivit%c3%a9s>#</a></h2><p>On se donne un ensemble d&rsquo;activités $a_{i}$ qui doivent chacune se
+dérouler pendant un intervalle de temps $\lbrack d_{i},f_{i}\lbrack$. On
+veut determiner le maximum d&rsquo;activites qu&rsquo;une personne peut faire, qui
+se déroulent pendant des intervalles de temps disjoints (une personne ne
+peut faire qu&rsquo;une activite a la fois).</p><p>On represente chaque activite par une liste de trois elements :
+<code>[i, d, f]</code>, l&rsquo;indice de l&rsquo;activite <code>i</code>, l&rsquo;heure de debut <code>d</code>, et
+l&rsquo;heure de fin <code>f</code>.</p><p>La fonctions prend en parametre une liste d&rsquo;activite <code>A</code>, et renvoie la
+liste des indices <code>i</code> des activites choisies.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-py data-lang=py><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>select_activities</span>(A):
+</span></span><span style=display:flex><span>    L <span style=color:#f92672>=</span> sorted(A, key <span style=color:#f92672>=</span> <span style=color:#66d9ef>lambda</span> x: x[<span style=color:#ae81ff>2</span>])
+</span></span><span style=display:flex><span>    S <span style=color:#f92672>=</span> [L[<span style=color:#ae81ff>0</span>][<span style=color:#ae81ff>0</span>]]
+</span></span><span style=display:flex><span>    f <span style=color:#f92672>=</span> L[<span style=color:#ae81ff>0</span>][<span style=color:#ae81ff>2</span>]
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> range(<span style=color:#ae81ff>1</span>, len(L)) :
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> L[i][<span style=color:#ae81ff>1</span>] <span style=color:#f92672>&gt;=</span>  f :
+</span></span><span style=display:flex><span>            S<span style=color:#f92672>.</span>append(L[i][<span style=color:#ae81ff>0</span>])
+</span></span><span style=display:flex><span>            f <span style=color:#f92672>=</span> L[i][<span style=color:#ae81ff>2</span>]
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> S
+</span></span></code></pre></div></article><footer class=book-footer><div class="flex flex-wrap justify-between"></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#problème-1--plus-grand-nombre>Problème 1 : Plus grand nombre</a><ul><li></li></ul></li><li><a href=#problème-2--rendu-de-monnaie>Problème 2 : Rendu de monnaie</a><ul><li></li></ul></li><li><a href=#probleme-3--fractions-égyptiennes>Probleme 3 : Fractions Égyptiennes</a><ul><li></li></ul></li><li><a href=#problème-4--sélection-dactivités>Problème 4 : Sélection d&rsquo;activités</a></li></ul></nav></div></aside></main></body></html>

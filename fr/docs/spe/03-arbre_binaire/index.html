@@ -1,0 +1,191 @@
+<!doctype html><html lang=fr-FR dir=ltr><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="
+  Arbres binaires
+  #
+
+
+  Définitions
+  #
+
+En mathématique: Un arbre est un cas spécial de graphe acyclique
+oriente, ou tous les nœuds sauf la racine ont un unique parent
+En informatique: C&rsquo;est une structure de données récursive utilisée
+pour représenter ce type de graphes.
+
+  Exemples et terminologie
+  #
+
+
+
+Un arbre contenant des entiers
+
+Un arbre est un ensemble de noeuds et d&rsquo;arete reliant ces
+nœudsChaque noeud a une etiquette : une valeur ou donnee associee au
+noeud.
+L&rsquo;ordre ou la taille d&rsquo;un arbre est le nombre de noeuds qui le
+compose.
+La racine d&rsquo;un arbre est le noeud le plus haut dans l&rsquo;hierarchie de
+l&rsquo;arbre, c&rsquo;est le noeud &ldquo;de depart&rdquo;.
+Tous les noeuds sauf la racine ont un unique pere, c&rsquo;est le noeud
+directement au-dessus dans l&rsquo;hierarchie.
+Les noeuds ont 0, 1, ou plusieurs fils. Les noeuds sans fils sont
+appele feuilles de l&rsquo;arbre.
+Le degree d&rsquo;un noeud est le nombre de fils qu&rsquo;il a.
+La profondeur d&rsquo;un noeud est le nombre d&rsquo;arete necessaire pour aller
+du noeud a la racine.
+On s&rsquo;interesse dans ce cours aux arbres binaires, c-a-d, les arbres
+ayant des noeuds de degree maximum 2.\"><meta name=theme-color media="(prefers-color-scheme: light)" content="#ffffff"><meta name=theme-color media="(prefers-color-scheme: dark)" content="#343a40"><meta name=color-scheme content="light dark"><meta property="og:url" content="http://localhost:1313/fr/docs/spe/03-arbre_binaire/"><meta property="og:site_name" content="info-nf"><meta property="og:title" content="info-nf"><meta property="og:description" content="Arbres binaires # Définitions # En mathématique: Un arbre est un cas spécial de graphe acyclique oriente, ou tous les nœuds sauf la racine ont un unique parent
+En informatique: C’est une structure de données récursive utilisée pour représenter ce type de graphes.
+Exemples et terminologie # Un arbre contenant des entiers
+Un arbre est un ensemble de noeuds et d’arete reliant ces nœudsChaque noeud a une etiquette : une valeur ou donnee associee au noeud.
+L’ordre ou la taille d’un arbre est le nombre de noeuds qui le compose.
+La racine d’un arbre est le noeud le plus haut dans l’hierarchie de l’arbre, c’est le noeud “de depart”.
+Tous les noeuds sauf la racine ont un unique pere, c’est le noeud directement au-dessus dans l’hierarchie.
+Les noeuds ont 0, 1, ou plusieurs fils. Les noeuds sans fils sont appele feuilles de l’arbre.
+Le degree d’un noeud est le nombre de fils qu’il a.
+La profondeur d’un noeud est le nombre d’arete necessaire pour aller du noeud a la racine.
+On s’interesse dans ce cours aux arbres binaires, c-a-d, les arbres ayant des noeuds de degree maximum 2.\"><meta property="og:locale" content="fr_FR"><meta property="og:type" content="article"><meta property="article:section" content="docs"><title>03 Arbre Binaire | info-nf</title>
+<link rel=icon href=/favicon.png><link rel=manifest href=/manifest.json><link rel=canonical href=http://localhost:1313/fr/docs/spe/03-arbre_binaire/><link rel=stylesheet href=/book.min.6c8b9d2a1fc95075ed7da46ca81060b39add8fff6741ac51259f768929281e2c.css integrity="sha256-bIudKh/JUHXtfaRsqBBgs5rdj/9nQaxRJZ92iSkoHiw=" crossorigin=anonymous><script defer src=/fuse.min.js></script><script defer src=/fr.search.min.0a7c2e2526478f685299931e35d261b568453569cc546ccf511939d076eb6dd1.js integrity="sha256-CnwuJSZHj2hSmZMeNdJhtWhFNWnMVGzPURk50HbrbdE=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/fr/><span>info-nf</span></a></h2><div class="book-search hidden"><input type=text id=book-search-input placeholder=Rechercher aria-label=Rechercher maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><script>document.querySelector(".book-search").classList.remove("hidden")</script><ul class=book-languages><li><input type=checkbox id=languages class=toggle>
+<label for=languages class="flex justify-between"><a role=button class="flex align-center"><img src=/svg/translate.svg class=book-icon alt=Languages>
+Francais</a></label><ul><li><a href=/>English</a></li></ul></li></ul><ul><li class=book-section-flat><input type=checkbox id=section-ffdbecff6f0c7ccf900e4462b9a45a4a class=toggle>
+<label for=section-ffdbecff6f0c7ccf900e4462b9a45a4a class="flex justify-between"><a role=button>Sup</a></label><ul><li><a href=/fr/docs/sup/00-system_info/>00 System Info</a></li><li><a href=/fr/docs/sup/01-codage/>01 Codage</a></li><li><a href=/fr/docs/sup/02-intro_python/>02 Intro Python</a></li><li><a href=/fr/docs/sup/03-les_fonctions/>03 Les Fonctions</a></li><li><a href=/fr/docs/sup/04-les_listes/>04 Les Listes</a></li><li><a href=/fr/docs/sup/05-les_chaines/>05 Les Chaines</a></li><li><a href=/fr/docs/sup/06-les_tris/>06 Les Tris</a></li><li><a href=/fr/docs/sup/07-tuples_dictionnaires_ensembles/>07 Tuples Dictionnaires Ensembles</a></li></ul></li><li class=book-section-flat><input type=checkbox id=section-0dffdbec383fb400778d964a8f20cb48 class=toggle checked>
+<label for=section-0dffdbec383fb400778d964a8f20cb48 class="flex justify-between"><a role=button>Spe</a></label><ul><li><a href=/fr/docs/spe/01-complexite/>01 Complexite</a></li><li><a href=/fr/docs/spe/02-algorithme_de_tri/>02 Algorithme De Tri</a></li><li><a href=/fr/docs/spe/03-arbre_binaire/ class=active>03 Arbre Binaire</a></li><li><a href=/fr/docs/spe/04-algorithme_glouton/>04 Algorithme Glouton</a></li><li><a href=/fr/docs/spe/05-programation_dynamique/>05 Programation Dynamique</a></li><li><a href=/fr/docs/spe/06-les_graphes/>06 Les Graphes</a></li><li><a href=/fr/docs/spe/07-sql/>07 SQL</a></li></ul></li></ul><ul><li><a href=/fr/posts/>Blog</a></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/svg/menu.svg class=book-icon alt=Menu></label><h3>03 Arbre Binaire</h3><label for=toc-control><img src=/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#définitions>Définitions</a></li><li><a href=#exemples-et-terminologie>Exemples et terminologie</a></li><li><a href=#structure-recursive>Structure recursive</a><ul><li></li></ul></li><li><a href=#implementation>Implementation</a></li><li><a href=#parcours>Parcours</a><ul><li><a href=#parcours-en-profondeur-depth-first-search>Parcours en profondeur (Depth-First Search):</a></li><li><a href=#parcours-en-largeur-breadth-first-search>Parcours en largeur (Breadth-First Search)</a></li></ul></li></ul><ul><li><a href=#implementation-2>Implementation</a></li></ul><ul><li><a href=#implementation-3>Implementation</a></li><li><a href=#tri-par-tas-heap-sort>Tri par tas (Heap sort)</a></li></ul></nav></aside></header><article class="markdown book-article"><h1 id=arbres-binaires>Arbres binaires
+<a class=anchor href=#arbres-binaires>#</a></h1><h2 id=définitions>Définitions
+<a class=anchor href=#d%c3%a9finitions>#</a></h2><p><strong>En mathématique:</strong> Un arbre est un cas spécial de graphe acyclique
+oriente, ou tous les nœuds sauf la racine ont un unique parent</p><p><strong>En informatique:</strong> C&rsquo;est une structure de données récursive utilisée
+pour représenter ce type de graphes.</p><h2 id=exemples-et-terminologie>Exemples et terminologie
+<a class=anchor href=#exemples-et-terminologie>#</a></h2><figure><p><img src=/spe/res/03-arbre_1.png style=width:60%></p><figcaption><p>Un arbre contenant des entiers</p></figcaption></figure><p>Un arbre est un ensemble de <strong>noeuds</strong> et d&rsquo;<strong>arete</strong> reliant ces
+nœudsChaque noeud a une <strong>etiquette</strong> : une valeur ou donnee associee au
+noeud.<br><strong>L&rsquo;ordre</strong> ou la <strong>taille</strong> d&rsquo;un arbre est le nombre de noeuds qui le
+compose.<br>La <strong>racine</strong> d&rsquo;un arbre est le noeud le plus haut dans l&rsquo;hierarchie de
+l&rsquo;arbre, c&rsquo;est le noeud &ldquo;de depart&rdquo;.<br>Tous les noeuds sauf la racine ont un unique <strong>pere</strong>, c&rsquo;est le noeud
+directement au-dessus dans l&rsquo;hierarchie.<br>Les noeuds ont 0, 1, ou plusieurs <strong>fils</strong>. Les noeuds sans fils sont
+appele <strong>feuilles</strong> de l&rsquo;arbre.<br>Le <strong>degree</strong> d&rsquo;un noeud est le nombre de fils qu&rsquo;il a.<br>La <strong>profondeur</strong> d&rsquo;un noeud est le nombre d&rsquo;arete necessaire pour aller
+du noeud a la racine.<br>On s&rsquo;interesse dans ce cours aux arbres <strong>binaires</strong>, c-a-d, les arbres
+ayant des noeuds de degree maximum 2.\</p><figure><p><img src=/spe/res/03-arbre_2.png style=width:60%></p><figcaption><p>Classe de complexite</p></figcaption></figure><h2 id=structure-recursive>Structure recursive
+<a class=anchor href=#structure-recursive>#</a></h2><p>On peut definir les arbres binaires de maniere recursive. Un arbre est :</p><ul><li><p>Soit vide, representee par une liste vide <code>[]</code>.</p></li><li><p>Soit compose d&rsquo;un noeud racine ayant une valeur $V_{r}$, d&rsquo;un
+sous-arbre gauche $F_{g}$, et d&rsquo;un sous-arbre droit $F_{d}$. On
+represente l&rsquo;arbre par la liste <code>[V_r, F_g, F_d]</code>.</p></li></ul><h4 id=exemples>Exemples
+<a class=anchor href=#exemples>#</a></h4><ul><li><p><code>[2, [], []]</code></p></li><li><p><code>[4, [2, [], []], [8, [1, [], []], []] ]</code></p></li><li><p><code>[7, [3, [1, [], []], [2, [], []]], [5, [4, [], []], []] ]</code></p></li></ul><h2 id=implementation>Implementation
+<a class=anchor href=#implementation>#</a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-py data-lang=py><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>cree_arbre</span>():
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> []
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>arbre</span>(R, Fg, Fd):
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> [R, Fg, Fd]
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>est_vide</span>(A):
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> A <span style=color:#f92672>==</span> []
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>fils_g</span>(A):
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> est_vide(A): <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>None</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> A[<span style=color:#ae81ff>1</span>]
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>fils_d</span>(A):
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> est_vide(A): <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>None</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> A[<span style=color:#ae81ff>2</span>]
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>racine</span>(A):
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> est_vide(A): <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>None</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> A[<span style=color:#ae81ff>0</span>]
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>est_arbre</span>(A):
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> est_vide(A) <span style=color:#f92672>or</span> (isinstance(A, list) <span style=color:#f92672>and</span> len(A) <span style=color:#f92672>==</span><span style=color:#ae81ff>3</span> <span style=color:#f92672>and</span> est_arbre(fils_g(A)) <span style=color:#f92672>and</span> est_arbre(fils_d(A))
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>est_feuille</span>(A):
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> <span style=color:#f92672>not</span> est_vide(A) <span style=color:#f92672>and</span> est_vide(fils_g(A)) <span style=color:#f92672>and</span> est_vide(fils_d(A))
+</span></span></code></pre></div><h2 id=parcours>Parcours
+<a class=anchor href=#parcours>#</a></h2><p>On peut parcourir l&rsquo;arbre en privilegiant la largeur, ou la profondeur.</p><h3 id=parcours-en-profondeur-depth-first-search>Parcours en profondeur (Depth-First Search):
+<a class=anchor href=#parcours-en-profondeur-depth-first-search>#</a></h3><h4 id=prefix->Prefix :
+<a class=anchor href=#prefix->#</a></h4><p>On parcourt l&rsquo;arbre recursivement suivant l&rsquo;ordre : $V_{r},F_{g},F_{d}$</p><h4 id=infix->Infix :
+<a class=anchor href=#infix->#</a></h4><p>On parcourt l&rsquo;arbre recursivement suivant l&rsquo;ordre : $F_{g},V_{r},F_{d}$</p><h4 id=postfix->Postfix :
+<a class=anchor href=#postfix->#</a></h4><p>On parcourt l&rsquo;arbre recursivement suivant l&rsquo;ordre : $F_{g},F_{d},V_{r}$</p><h3 id=parcours-en-largeur-breadth-first-search>Parcours en largeur (Breadth-First Search)
+<a class=anchor href=#parcours-en-largeur-breadth-first-search>#</a></h3><p>On liste tous les fils du meme niveau de profondeur avant de passer au
+niveau de profondeur suivant.</p><h4 id=implementation-1>Implementation
+<a class=anchor href=#implementation-1>#</a></h4><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-py data-lang=py><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>parcours_prefixe</span>(A):
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> est_vide(A) :
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> []
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> [racine(A)] <span style=color:#f92672>+</span> parcours_prefixe(fils_g(A)) <span style=color:#f92672>+</span> \
+</span></span><span style=display:flex><span>             parcours_prefixe(fils_d(A))
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>parcours_infixe</span>(A):
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> est_vide(A) :
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> []
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> parcours_infixe(fils_g(A)) <span style=color:#f92672>+</span> [racine(A)] <span style=color:#f92672>+</span> \
+</span></span><span style=display:flex><span>             parcours_infixe(fils_d(A))
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>parcours_postfixe</span>(A):
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> est_vide(A) :
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> []
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> parcours_postfixe(fils_g(A)) <span style=color:#f92672>+</span> parcours_postfixe(fils_d(A)) <span style=color:#f92672>+</span> \
+</span></span><span style=display:flex><span>            [racine(A)]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>BFS</span>(A):
+</span></span><span style=display:flex><span>    F <span style=color:#f92672>=</span> [A]
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>while</span> F<span style=color:#f92672>!=</span>[]:
+</span></span><span style=display:flex><span>        x <span style=color:#f92672>=</span> F<span style=color:#f92672>.</span>pop(<span style=color:#ae81ff>0</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e># Traitement sur x</span>
+</span></span><span style=display:flex><span>        print(racine(x))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e># Ajout des fils dans la file</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> <span style=color:#f92672>not</span> est_vide(fils_g(A)):
+</span></span><span style=display:flex><span>            F<span style=color:#f92672>.</span>append(fils_g(x))
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> <span style=color:#f92672>not</span> est_vide(fils_d(A)):
+</span></span><span style=display:flex><span>            F<span style=color:#f92672>.</span>append(fils_d(x))
+</span></span></code></pre></div><h1 id=arbre-binaire-de-becherche-binary-search-tree>Arbre Binaire de Becherche (Binary Search Tree)
+<a class=anchor href=#arbre-binaire-de-becherche-binary-search-tree>#</a></h1><p>Un ABR <code>A</code> est un arbre binaire qui verifie les conditions suivantes :</p><ul><li><p>Les etiquettes du sous-arbre gauche sont inferieures a celle de la
+racine</p></li><li><p>Les etiquettes du sous-arbre droit sont superieures a celle de la
+racine</p></li><li><p>Les sous-arbres gauche et droit sont des ABR (recursivite)</p></li></ul><figure><p><img src=/spe/res/03-ABR.png style=width:90%></p><figcaption><p>Un ABR</p></figcaption></figure><p>On peut obtenir les etiquettes d&rsquo;un ABR en ordre croissant en faisant un
+parcours infixe.</p><h2 id=implementation-2>Implementation
+<a class=anchor href=#implementation-2>#</a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-py data-lang=py><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>min_abr</span>(ABR):
+</span></span><span style=display:flex><span>    current <span style=color:#f92672>=</span> ABR
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>while</span> <span style=color:#f92672>not</span> est_vide(fils_g(current)):
+</span></span><span style=display:flex><span>        current <span style=color:#f92672>=</span> fils_g(current)
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> racine(current)
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>max_abr</span>(ABR):
+</span></span><span style=display:flex><span>    current <span style=color:#f92672>=</span> ABR
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>while</span> <span style=color:#f92672>not</span> est_vide(fils_d(current)):
+</span></span><span style=display:flex><span>        current <span style=color:#f92672>=</span> fils_d(current)
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> racine(current)
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>insert</span>(ABR, e):
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> est_vide(ABR):
+</span></span><span style=display:flex><span>        ABR <span style=color:#f92672>=</span> [e, [], []]
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>elif</span> e <span style=color:#f92672>&lt;=</span> racine(ABR) :
+</span></span><span style=display:flex><span>        insert(fils_g(ABR), e)
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>else</span> :
+</span></span><span style=display:flex><span>        insert(fils_d(ABR), e)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>search</span>(ABR, e):
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> est_vide(ABR) :
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>False</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> racine(ABR) <span style=color:#f92672>==</span> e:
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>True</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> e <span style=color:#f92672>&lt;</span> racine(ABR) :
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> search(fils_g(ABR), e)
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> e <span style=color:#f92672>&gt;</span> racine(ABR) :
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> search(fils_d(ABR), e)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>predecessor</span>(ABR, e):
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> est_vide(fils_g(ABR)) :
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>None</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> max_abr(fils_g(ABR))
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>successor</span>(ABR, e):
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> est_vide(fils_d(ABR)) :
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>None</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> min_abr(fils_d(ABR))
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>remove</span>(ABR, e):
+</span></span><span style=display:flex><span>    <span style=color:#75715e># ...</span>
+</span></span></code></pre></div><h1 id=tas>Tas
+<a class=anchor href=#tas>#</a></h1><p>Un Tas <code>T</code> est un arbre binaire qui verifie les conditions suivantes :</p><ul><li><p>Il est <strong>parfait</strong>, c&rsquo;est a dire tous les niveaux sauf le dernier
+doivent être totalement remplis et le dernier niveau est rempli de
+gauche à droite.</p></li><li><p>L&rsquo;etiquette de chaque noeud est superieure ou egale (resp.
+inferieure ou egale) aux etiquettes de ses fils, on parle de tas
+<strong>max</strong> (resp. tas <strong>min</strong>)</p></li></ul><figure><p><img src=/spe/res/03-tas.png style=width:60%></p><figcaption><p>Un tas</p></figcaption></figure><h2 id=implementation-3>Implementation
+<a class=anchor href=#implementation-3>#</a></h2><p>Le tas etant un arbre binaire parfait, on peut l&rsquo;implementer en
+utilisant une seule liste, ou on met la racine a l&rsquo;indice 0, et pour
+chaque noeud <code>i</code> on met les fils gauche et droit aux position <code>2*i+1</code> et
+<code>2*i+2</code>.</p><p>Le tas precedent est donc implemente comme suit :
+<code>T = [53, 41, 30, 36, 28, 21, 6, 31, 16, 20]</code></p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-py data-lang=py><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>cree_tas</span>():
+</span></span><span style=display:flex><span>  <span style=color:#66d9ef>return</span> []
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>insert</span>(T, e):
+</span></span><span style=display:flex><span>  <span style=color:#75715e># ...</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>enleve_racine</span>(T):
+</span></span><span style=display:flex><span>  <span style=color:#75715e># ...</span>
+</span></span></code></pre></div><h2 id=tri-par-tas-heap-sort>Tri par tas (Heap sort)
+<a class=anchor href=#tri-par-tas-heap-sort>#</a></h2><p>On peut utiliser les tas pour faire le tri: Pour une liste <code>L</code>, on
+insere successivement les elements de <code>L</code> dans un tas min, puis on
+enleve la racine successivement jusqu&rsquo;a vider le tas, la racine etant le
+min a chaque iteration, l&rsquo;ordre des racine enleve sera donc croissant.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-py data-lang=py><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>tri_par_tas</span>(L):
+</span></span><span style=display:flex><span>    <span style=color:#75715e># ...</span>
+</span></span></code></pre></div></article><footer class=book-footer><div class="flex flex-wrap justify-between"></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#définitions>Définitions</a></li><li><a href=#exemples-et-terminologie>Exemples et terminologie</a></li><li><a href=#structure-recursive>Structure recursive</a><ul><li></li></ul></li><li><a href=#implementation>Implementation</a></li><li><a href=#parcours>Parcours</a><ul><li><a href=#parcours-en-profondeur-depth-first-search>Parcours en profondeur (Depth-First Search):</a></li><li><a href=#parcours-en-largeur-breadth-first-search>Parcours en largeur (Breadth-First Search)</a></li></ul></li></ul><ul><li><a href=#implementation-2>Implementation</a></li></ul><ul><li><a href=#implementation-3>Implementation</a></li><li><a href=#tri-par-tas-heap-sort>Tri par tas (Heap sort)</a></li></ul></nav></div></aside></main></body></html>
